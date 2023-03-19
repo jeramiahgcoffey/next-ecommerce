@@ -1,0 +1,71 @@
+@import 'styles/variables';
+
+h1 {
+  font-weight: bold;
+  font-size: 56px;
+  text-transform: uppercase;
+  line-height: 58px;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: uppercase;
+  line-height: 44px;
+  letter-spacing: 1.5px;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+  line-height: 36px;
+  letter-spacing: 1.15px;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 28px;
+  text-transform: uppercase;
+  line-height: 38px;
+  letter-spacing: 2px;
+}
+
+h5 {
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 33px;
+  letter-spacing: 1.7px;
+}
+
+h6 {
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 24px;
+  letter-spacing: 1.3px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.overline {
+  color: $primary;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 19px;
+  letter-spacing: 10px;
+}
+
+.subtitle {
+  color: $primary;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 25px;
+  letter-spacing: 1px;
+}

@@ -1,4 +1,3 @@
-import styles from '@/styles/Home.module.scss';
 import Head from 'next/head';
 
 export default function Home() {
@@ -10,8 +9,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1 className={styles.heading}>Hello World</h1>
+      <div>
+        <h1>Hello World</h1>
+        <h2>Hello World</h2>
+        <h3>Hello World</h3>
+        <h4>Hello World</h4>
+        <h5>Hello World</h5>
+        <h6>Hello World</h6>
+        <p>Hello World</p>
+        <div className="overline">Hello World</div>
+        <div className="subtitle">Hello World</div>
+        <hr />
         <div>
           Home Headphones Speakers Earphones New product XX99 Mark II Headphones
           Experience natural, lifelike audio and exceptional build quality made
@@ -31,7 +39,7 @@ export default function Home() {
           personal audio. Come and visit our demo facility - we&apos;re open 7
           days a week. Copyright 2021. All Rights Reserved
         </div>
-      </main>
+      </div>
     </>
   );
 }
