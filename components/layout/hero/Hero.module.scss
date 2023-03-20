@@ -1,0 +1,55 @@
+@import 'styles/variables';
+
+.hero {
+  height: 640px;
+  position: relative;
+
+  .imageContainer {
+    position: relative;
+    height: 100%;
+    margin-top: -95px;
+    overflow: hidden;
+    z-index: -10;
+    .image {
+      object-fit: cover;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 95px;
+    background-color: rgba($color: black, $alpha: 0.35);
+    height: calc(100% - 95px);
+    width: 100%;
+
+    .textContainer {
+      color: white;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 30px;
+
+      .overline {
+        color: $neutral;
+        opacity: 35%;
+        margin-bottom: 15px;
+      }
+
+      h2 {
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 40px;
+        letter-spacing: 1.28571px;
+        margin-bottom: 30px;
+      }
+
+      p {
+        opacity: 65%;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

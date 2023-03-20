@@ -1,3 +1,4 @@
+import Hero from '@/components/layout/hero/Hero';
 import Navbar from '@/components/layout/navbar/Navbar';
 import Head from 'next/head';
 
@@ -12,6 +13,7 @@ export default function Home() {
       </Head>
 
       <Navbar />
+      <Hero />
     </>
   );
 }
