@@ -1,4 +1,5 @@
 import Button from '@/components/inputs/button/Button';
+import NumberField from '@/components/inputs/numberField/NumberField';
 import RadioGroup from '@/components/inputs/radio/RadioGroup';
 import TextField from '@/components/inputs/textField/TextField';
 
@@ -15,6 +16,7 @@ const items = [
 export default function Home() {
   const [name, setName] = useState('');
   const [selectedRadio, setSelectedRadio] = useState('');
+  const [number, setNumber] = useState(1);
 
   return (
     <>
@@ -33,6 +35,12 @@ export default function Home() {
             width: 200,
           }}
         >
+          <NumberField
+            value={number}
+            handleChangeEvent={(e) => setNumber(parseInt(e.target.value) || 0)}
+            handleDecrement={() => setNumber((prevNumber) => prevNumber - 1)}
+            handleIncrement={() => setNumber((prevNumber) => prevNumber + 1)}
+          />
           <RadioGroup
             groupName="testing"
             items={items}

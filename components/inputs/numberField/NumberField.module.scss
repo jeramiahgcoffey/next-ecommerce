@@ -1,0 +1,45 @@
+@import 'styles/variables';
+$size: 35px;
+
+.input {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.input,
+.control {
+  width: $size;
+  background-color: $neutral;
+  border: none;
+  outline: none;
+}
+
+.input {
+  text-align: center;
+  padding: 15px 0;
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+
+  span {
+    opacity: 25%;
+  }
+
+  &:hover {
+    color: $primary;
+
+    span {
+      opacity: 100%;
+    }
+  }
+}
