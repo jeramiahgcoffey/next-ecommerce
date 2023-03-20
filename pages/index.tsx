@@ -1,4 +1,6 @@
+import Button from '@/components/inputs/button/Button';
 import Head from 'next/head';
+import { RxCaretRight } from 'react-icons/rx';
 
 export default function Home() {
   return (
@@ -10,6 +12,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 10,
+            width: 200,
+          }}
+        >
+          <Button variant="primary" handler={() => {}}>
+            <span className="flexCenter">See Product</span>
+          </Button>
+          <Button variant="secondary" handler={() => {}}>
+            <span className="flexCenter">See Product</span>
+          </Button>
+          <Button variant="flat" handler={() => {}}>
+            <span className="flexCenter">
+              Shop <RxCaretRight className="textPrimary" />
+            </span>
+          </Button>
+        </div>
         <h1>Hello World</h1>
         <h2>Hello World</h2>
         <h3>Hello World</h3>

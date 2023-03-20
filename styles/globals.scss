@@ -69,3 +69,13 @@ p {
   line-height: 25px;
   letter-spacing: 1px;
 }
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textPrimary {
+  color: $primary;
+}
