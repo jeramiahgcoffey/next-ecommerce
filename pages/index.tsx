@@ -1,12 +1,20 @@
 import Button from '@/components/inputs/button/Button';
+import RadioGroup from '@/components/inputs/radio/RadioGroup';
 import TextField from '@/components/inputs/textField/TextField';
 
 import Head from 'next/head';
 import { useState } from 'react';
 import { RxCaretRight } from 'react-icons/rx';
 
+const items = [
+  { id: '1', value: '1', label: 'e-Money' },
+  { id: '2', value: '2', label: 'two' },
+  { id: '3', value: '3', label: 'three' },
+];
+
 export default function Home() {
   const [name, setName] = useState('');
+  const [selectedRadio, setSelectedRadio] = useState('');
 
   return (
     <>
@@ -25,6 +33,12 @@ export default function Home() {
             width: 200,
           }}
         >
+          <RadioGroup
+            groupName="testing"
+            items={items}
+            selected={selectedRadio}
+            handleChangeEvent={(e) => setSelectedRadio(e.target.value)}
+          />
           <TextField
             value={name}
             handleChangeEvent={(e) => setName(e.target.value)}
