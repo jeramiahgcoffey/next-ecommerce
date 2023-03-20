@@ -1,8 +1,13 @@
 import Button from '@/components/inputs/button/Button';
+import TextField from '@/components/inputs/textField/TextField';
+
 import Head from 'next/head';
+import { useState } from 'react';
 import { RxCaretRight } from 'react-icons/rx';
 
 export default function Home() {
+  const [name, setName] = useState('');
+
   return (
     <>
       <Head>
@@ -20,13 +25,36 @@ export default function Home() {
             width: 200,
           }}
         >
-          <Button variant="primary" handler={() => {}}>
+          <TextField
+            value={name}
+            handleChangeEvent={(e) => setName(e.target.value)}
+            name="name"
+            label="Name"
+            placeholder="Insert your name"
+            error={''}
+          />
+          <Button
+            variant="primary"
+            handleClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              console.log(e);
+            }}
+          >
             <span className="flexCenter">See Product</span>
           </Button>
-          <Button variant="secondary" handler={() => {}}>
+          <Button
+            variant="secondary"
+            handleClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              console.log(e);
+            }}
+          >
             <span className="flexCenter">See Product</span>
           </Button>
-          <Button variant="flat" handler={() => {}}>
+          <Button
+            variant="flat"
+            handleClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              console.log(e);
+            }}
+          >
             <span className="flexCenter">
               Shop <RxCaretRight className="textPrimary" />
             </span>

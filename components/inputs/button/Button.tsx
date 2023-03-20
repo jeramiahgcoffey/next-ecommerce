@@ -2,16 +2,20 @@ import { ReactElement } from 'react';
 import styles from './Button.module.scss';
 
 interface IButtonProps {
-  variant?: 'primary' | 'secondary' | 'flat';
+  variant: 'primary' | 'secondary' | 'flat';
   children: ReactElement | string;
-  handler(): void;
+  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button = ({ variant = 'primary', handler, children }: IButtonProps) => {
+const Button = ({
+  variant = 'primary',
+  handleClick,
+  children,
+}: IButtonProps) => {
   return (
     <button
       className={`subtitle ${styles.button} ${styles[variant]}`}
-      onClick={() => handler()}
+      onClick={(e) => handleClick(e)}
     >
       {children}
     </button>

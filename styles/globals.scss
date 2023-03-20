@@ -1,5 +1,9 @@
 @import 'styles/variables';
 
+* {
+  box-sizing: border-box;
+}
+
 h1 {
   font-weight: bold;
   font-size: 56px;
@@ -74,6 +78,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.flexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .textPrimary {
