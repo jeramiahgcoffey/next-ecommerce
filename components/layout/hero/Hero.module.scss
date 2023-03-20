@@ -1,4 +1,5 @@
 @import 'styles/variables';
+@import 'styles/mixins';
 
 .hero {
   height: 600px;
@@ -10,6 +11,11 @@
     margin-top: -95px;
     overflow: hidden;
     z-index: -10;
+
+    @include devices(tablet) {
+      margin-top: 0px;
+    }
+
     .image {
       object-fit: cover;
     }
@@ -21,6 +27,11 @@
     background-color: rgba($color: black, $alpha: 0.35);
     height: calc(100% - 95px);
     width: 100%;
+
+    @include devices(tablet) {
+      height: 100%;
+      top: 0;
+    }
 
     .textContainer {
       color: white;
@@ -37,15 +48,21 @@
       .overline {
         color: $neutral;
         opacity: 35%;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
       }
 
       h2 {
         font-weight: 500;
         font-size: 36px;
         line-height: 40px;
-        letter-spacing: 1.28571px;
-        margin-bottom: 30px;
+        letter-spacing: 1.28px;
+        margin-bottom: 25px;
+      }
+
+      h1 {
+        font-weight: 500;
+
+        margin-bottom: 25px;
       }
 
       p {

@@ -14,7 +14,7 @@ const Hero = () => {
       <div className={styles.imageContainer}>
         <Image
           className={styles.image}
-          src={width < 400 ? mobileHeaderImage : tabletHeaderImage}
+          src={width < 600 ? mobileHeaderImage : tabletHeaderImage}
           alt="Featured headphones"
           fill
         />
@@ -22,7 +22,11 @@ const Hero = () => {
       <div className={styles.overlay}>
         <div className={styles.textContainer}>
           <div className={`overline ${styles.overline}`}>new product</div>
-          <h2>xx99 mark ii headphones</h2>
+          {width < 600 ? (
+            <h2>xx99 mark ii headphones</h2>
+          ) : (
+            <h1>xx99 mark ii headphones</h1>
+          )}
           <p>
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
