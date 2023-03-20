@@ -1,0 +1,14 @@
+@import 'styles/variables';
+
+.nav {
+  background-color: $dark;
+  height: 80px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 24px;
+}
