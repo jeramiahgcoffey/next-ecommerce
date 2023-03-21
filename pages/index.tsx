@@ -11,7 +11,9 @@ export default function Home() {
   const { width } = useViewport();
 
   const zx9 = () => {
-    if (width > 600) {
+    if (width > 1000) {
+      return '/assets/home/desktop/image-speaker-zx9.png';
+    } else if (width > 600) {
       return '/assets/home/tablet/image-speaker-zx9.png';
     } else {
       return '/assets/home/mobile/image-speaker-zx9.png';
@@ -56,23 +58,24 @@ export default function Home() {
             <Image
               className={styles.speaker}
               src={zx9()}
-              width={172.25}
-              height={209}
+              width={width < 1000 ? 172.25 : 400}
+              height={width < 1000 ? 209 : 486}
               alt="zx9 speaker"
             />
-
-            <h3>ZX9 Speaker</h3>
-            <p>
-              Upgrade to premium speakers that are phenomenally built to deliver
-              truly remarkable sound.
-            </p>
-            <div className={styles.button}>
-              <Button
-                handleClick={() => console.log('click')}
-                variant="inverted"
-              >
-                See product
-              </Button>
+            <div className={styles.textContainer}>
+              <h3>ZX9 Speaker</h3>
+              <p>
+                Upgrade to premium speakers that are phenomenally built to
+                deliver truly remarkable sound.
+              </p>
+              <div className={styles.button}>
+                <Button
+                  handleClick={() => console.log('click')}
+                  variant="inverted"
+                >
+                  See product
+                </Button>
+              </div>
             </div>
           </div>
         </div>

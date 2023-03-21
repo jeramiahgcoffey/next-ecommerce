@@ -21,11 +21,13 @@
   }
 
   .zx9Card {
+    max-width: 1110px;
     background-color: $primary;
     border-radius: 12px;
     text-align: center;
     color: white;
     padding: 55px 30px;
+    margin: auto;
     margin-bottom: 25px;
     overflow: hidden;
 
@@ -34,26 +36,38 @@
     @include devices(tablet) {
       height: 720px;
     }
+    @include devices(desktop) {
+      height: 560px;
+    }
 
     .container {
       position: relative;
-      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 350px;
       margin: auto;
 
+      @include devices(desktop) {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+        margin: 0 80px;
+        gap: 60px;
+      }
+
       .speaker {
+        z-index: 1;
         margin-bottom: 36px;
 
         @include devices(tablet) {
           margin-bottom: 64px;
         }
+        @include devices(desktop) {
+          margin-bottom: -100px;
+        }
       }
 
       .circles {
-        z-index: 1;
         pointer-events: none;
         position: absolute;
         top: -175px;
@@ -61,38 +75,54 @@
         @include devices(tablet) {
           width: 950px;
           height: 950px;
-
           top: -375px;
         }
+        @include devices(desktop) {
+          width: 950px;
+          height: 950px;
+          top: auto;
+          bottom: -400px;
+          left: -275px;
+        }
       }
-    }
 
-    p {
-      opacity: 0.75;
-      margin-bottom: 25px;
+      .textContainer {
+        z-index: 2;
+        margin: auto;
+        max-width: 350px;
 
-      @include devices(tablet) {
-        margin-bottom: 35px;
-      }
-    }
+        @include devices(desktop) {
+          text-align: left;
+          margin: 0;
+        }
 
-    .button {
-      z-index: 2;
-    }
+        h3 {
+          z-index: 2;
+          padding: 0 50px;
+          margin-bottom: 25px;
+          font-size: 36px;
+          line-height: 40px;
+          letter-spacing: 1.29px;
 
-    h3 {
-      z-index: 2;
-      padding: 0 50px;
-      margin-bottom: 25px;
-      font-size: 36px;
-      line-height: 40px;
-      letter-spacing: 1.29px;
+          @include devices(tablet) {
+            font-size: 56px;
+            line-height: 58px;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+          }
+          @include devices(desktop) {
+            padding: 0;
+          }
+        }
 
-      @include devices(tablet) {
-        font-size: 56px;
-        line-height: 58px;
-        letter-spacing: 2px;
-        margin-bottom: 35px;
+        p {
+          opacity: 0.75;
+          margin-bottom: 25px;
+
+          @include devices(tablet) {
+            margin-bottom: 35px;
+          }
+        }
       }
     }
   }
