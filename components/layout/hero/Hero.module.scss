@@ -3,17 +3,27 @@
 
 .hero {
   height: 600px;
+  width: 100%;
   position: relative;
+
+  @include devices(tablet) {
+    height: 775px;
+  }
 
   .imageContainer {
     position: relative;
     height: 100%;
+    max-width: 1440px;
+    margin: auto;
     margin-top: -95px;
     overflow: hidden;
     z-index: -10;
 
     @include devices(tablet) {
-      margin-top: 0px;
+      margin-top: -70px;
+    }
+    @include devices(desktop) {
+      margin-top: -110px;
     }
 
     .image {
@@ -24,13 +34,21 @@
   .overlay {
     position: absolute;
     top: 95px;
+    left: 0;
+    right: 0;
+    margin: auto;
     background-color: rgba($color: black, $alpha: 0.35);
     height: calc(100% - 95px);
     width: 100%;
+    max-width: 1440px;
 
     @include devices(tablet) {
-      height: 100%;
-      top: 0;
+      height: calc(100% - 70px);
+      top: 70px;
+    }
+    @include devices(desktop) {
+      height: calc(100% - 110px);
+      top: 110px;
     }
 
     .textContainer {

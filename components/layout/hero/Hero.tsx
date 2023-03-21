@@ -27,6 +27,8 @@ const Hero = () => {
           className={styles.image}
           src={headerImage()}
           alt="Featured headphones"
+          // width={1440}
+          // height={729}
           fill
         />
       </div>
