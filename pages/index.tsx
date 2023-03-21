@@ -11,7 +11,7 @@ export default function Home() {
   const { width } = useViewport();
 
   const source = (
-    fileName: 'speaker-zx9.png' | 'speaker-zx7.jpg' | 'earphone-yx1.jpg'
+    fileName: 'speaker-zx9.png' | 'speaker-zx7.jpg' | 'earphones-yx1.jpg'
   ) => {
     if (width > 1000) {
       return `/assets/home/desktop/image-${fileName}`;
@@ -101,6 +101,28 @@ export default function Home() {
                 </Button>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className={styles.yx1Container}>
+          <div className={styles.container}>
+            <Image
+              className={styles.image}
+              src={source('earphones-yx1.jpg')}
+              alt="yx1 earphones"
+              fill
+            />
+          </div>
+          <div className={`${styles.container} ${styles.textContainer}`}>
+            <h3>yx1 earphones</h3>
+            <Button
+              variant="secondary"
+              handleClick={() => {
+                console.log('click');
+              }}
+            >
+              See Product
+            </Button>
           </div>
         </div>
       </div>
