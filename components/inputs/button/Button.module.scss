@@ -26,6 +26,16 @@
     }
   }
 
+  &.inverted {
+    color: white;
+    background-color: black;
+    border: black solid 1px;
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+
   &.flat {
     background-color: transparent;
     color: black;

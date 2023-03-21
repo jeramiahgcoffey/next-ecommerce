@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import styles from './Button.module.scss';
 
 interface IButtonProps {
-  variant?: 'primary' | 'secondary' | 'flat';
+  variant?: 'primary' | 'secondary' | 'inverted' | 'flat';
   children: ReactElement | string;
   handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }

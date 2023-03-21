@@ -1,9 +1,10 @@
 import ShopCard from '@/components/cards/shopCard/ShopCard';
+import Button from '@/components/inputs/button/Button';
 import Hero from '@/components/layout/hero/Hero';
 import Navbar from '@/components/layout/navbar/Navbar';
-import Head from 'next/head';
-
 import styles from '@/styles/Home.module.scss';
+import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -17,19 +18,47 @@ export default function Home() {
 
       <Navbar />
       <Hero />
-      <div className={styles.shopCardContainer}>
-        <ShopCard
-          image="/assets/shared/desktop/image-category-thumbnail-headphones.png"
-          name="Headphones"
-        />
-        <ShopCard
-          image="/assets/shared/desktop/image-category-thumbnail-speakers.png"
-          name="Speakers"
-        />
-        <ShopCard
-          image="/assets/shared/desktop/image-category-thumbnail-earphones.png"
-          name="Earphones"
-        />
+      <div className={styles.home}>
+        <div className={styles.shopCardContainer}>
+          <ShopCard
+            image="/assets/shared/desktop/image-category-thumbnail-headphones.png"
+            name="Headphones"
+          />
+          <ShopCard
+            image="/assets/shared/desktop/image-category-thumbnail-speakers.png"
+            name="Speakers"
+          />
+          <ShopCard
+            image="/assets/shared/desktop/image-category-thumbnail-earphones.png"
+            name="Earphones"
+          />
+        </div>
+        <div className={styles.zx9Card}>
+          <div className={styles.imageContainer}>
+            <Image
+              className={styles.circles}
+              src="/assets/home/desktop/pattern-circles.svg"
+              width="560"
+              height="560"
+              alt="background circles"
+            />
+            <Image
+              className={styles.speaker}
+              src="/assets/home/mobile/image-speaker-zx9.png"
+              width={172.25}
+              height={209}
+              alt="zx9 speaker"
+            />
+          </div>
+          <h3>ZX9 Speaker</h3>
+          <p>
+            Upgrade to premium speakers that are phenomenally built to deliver
+            truly remarkable sound.
+          </p>
+          <Button handleClick={() => console.log('click')} variant="inverted">
+            See product
+          </Button>
+        </div>
       </div>
     </>
   );
