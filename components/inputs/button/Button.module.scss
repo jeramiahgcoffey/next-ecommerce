@@ -1,7 +1,7 @@
 @import 'styles/variables';
 
 .button {
-  font-weight: normal;
+  font-weight: 600;
   padding: 10px 25px;
   outline: none;
   border: none;
@@ -37,6 +37,7 @@
   }
 
   &.flat {
+    font-weight: normal;
     background-color: transparent;
     color: black;
     &:hover {
