@@ -5,6 +5,7 @@
   height: 600px;
   width: 100%;
   position: relative;
+  margin-bottom: 75px;
 
   @include devices(tablet) {
     height: 775px;

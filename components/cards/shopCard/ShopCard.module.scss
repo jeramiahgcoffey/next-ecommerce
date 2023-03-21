@@ -1,0 +1,35 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.shopCard {
+  // position: relative;
+  // object-fit: cover;
+  background-color: $neutral;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  flex-grow: 1;
+
+  .thumbnail {
+    margin-top: -58px;
+    margin-bottom: -20px;
+  }
+
+  .name {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 1.07143px;
+  }
+
+  .buttonText {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      color: $primary;
+      margin-bottom: 2px;
+    }
+  }
+}

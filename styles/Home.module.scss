@@ -1,1 +1,19 @@
 @import 'styles/variables';
+@import 'styles/mixins';
+
+.shopCardContainer {
+  padding: 0px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  max-width: 1110px;
+
+  margin: auto;
+  margin-bottom: 50px;
+
+  @include devices(tablet) {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+}
