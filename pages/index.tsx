@@ -66,9 +66,14 @@ export default function Home() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <Button handleClick={() => console.log('click')} variant="inverted">
-              See product
-            </Button>
+            <div className={styles.button}>
+              <Button
+                handleClick={() => console.log('click')}
+                variant="inverted"
+              >
+                See product
+              </Button>
+            </div>
           </div>
         </div>
       </div>

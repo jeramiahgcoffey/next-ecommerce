@@ -46,20 +46,42 @@
 
       .speaker {
         margin-bottom: 36px;
+
+        @include devices(tablet) {
+          margin-bottom: 64px;
+        }
       }
 
       .circles {
+        z-index: 1;
+        pointer-events: none;
         position: absolute;
         top: -175px;
+
+        @include devices(tablet) {
+          width: 950px;
+          height: 950px;
+
+          top: -375px;
+        }
       }
     }
 
     p {
       opacity: 0.75;
       margin-bottom: 25px;
+
+      @include devices(tablet) {
+        margin-bottom: 35px;
+      }
+    }
+
+    .button {
+      z-index: 2;
     }
 
     h3 {
+      z-index: 2;
       padding: 0 50px;
       margin-bottom: 25px;
       font-size: 36px;
@@ -70,6 +92,7 @@
         font-size: 56px;
         line-height: 58px;
         letter-spacing: 2px;
+        margin-bottom: 35px;
       }
     }
   }
