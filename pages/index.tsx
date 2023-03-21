@@ -91,7 +91,12 @@ export default function Home() {
             <div className={styles.textContainer}>
               <h3>zx7 speaker</h3>
               <div className={styles.button}>
-                <Button variant="secondary">See Product</Button>
+                <Button
+                  handleClick={() => console.log('click')}
+                  variant="secondary"
+                >
+                  See Product
+                </Button>
               </div>
             </div>
           </div>
