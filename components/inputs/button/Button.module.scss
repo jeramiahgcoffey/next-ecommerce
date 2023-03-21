@@ -17,7 +17,7 @@
   }
 
   &.secondary {
-    background-color: white;
+    background-color: transparent;
     color: black;
     border: black solid 1px;
     &:hover {
@@ -31,7 +31,7 @@
     background-color: black;
     border: black solid 1px;
     &:hover {
-      background-color: white;
+      background-color: transparent;
       color: black;
     }
   }

@@ -79,6 +79,23 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <div className={styles.zx7Card}>
+          <div className={styles.container}>
+            <Image
+              className={styles.image}
+              src="/assets/home/mobile/image-speaker-zx7.jpg"
+              fill
+              alt="zx7 speaker"
+            />
+            <div className={styles.textContainer}>
+              <h3>zx7 speaker</h3>
+              <div className={styles.button}>
+                <Button variant="secondary">See Product</Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
