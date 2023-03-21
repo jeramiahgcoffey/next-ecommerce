@@ -10,13 +10,15 @@ import Image from 'next/image';
 export default function Home() {
   const { width } = useViewport();
 
-  const zx9 = () => {
+  const source = (
+    fileName: 'speaker-zx9.png' | 'speaker-zx7.jpg' | 'earphone-yx1.jpg'
+  ) => {
     if (width > 1000) {
-      return '/assets/home/desktop/image-speaker-zx9.png';
+      return `/assets/home/desktop/image-${fileName}`;
     } else if (width > 600) {
-      return '/assets/home/tablet/image-speaker-zx9.png';
+      return `/assets/home/tablet/image-${fileName}`;
     } else {
-      return '/assets/home/mobile/image-speaker-zx9.png';
+      return `/assets/home/mobile/image-${fileName}`;
     }
   };
 
@@ -57,7 +59,7 @@ export default function Home() {
             />
             <Image
               className={styles.speaker}
-              src={zx9()}
+              src={source('speaker-zx9.png')}
               width={width < 1000 ? 172.25 : 400}
               height={width < 1000 ? 209 : 486}
               alt="zx9 speaker"
@@ -84,7 +86,7 @@ export default function Home() {
           <div className={styles.container}>
             <Image
               className={styles.image}
-              src="/assets/home/mobile/image-speaker-zx7.jpg"
+              src={source('speaker-zx7.jpg')}
               fill
               alt="zx7 speaker"
             />
