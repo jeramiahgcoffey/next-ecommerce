@@ -6,13 +6,11 @@ interface IViewportContext {
 }
 
 export const viewportContext = createContext<IViewportContext>({
-  width: typeof window !== 'undefined' ? window?.innerWidth : 0,
+  width: 0,
 });
 
 const ViewportProvider = ({ children }: { children: ReactElement }) => {
-  const currentWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
-
-  const [width, setWidth] = useState(currentWidth);
+  const [width, setWidth] = useState(0);
 
   const handleResize = (width: number) => {
     setWidth(width);
@@ -24,6 +22,7 @@ const ViewportProvider = ({ children }: { children: ReactElement }) => {
         'resize',
         throttle(() => handleResize(window.innerWidth), 300)
       );
+      handleResize(window.innerWidth);
       return () =>
         window.removeEventListener('resize', () =>
           handleResize(window.innerWidth)

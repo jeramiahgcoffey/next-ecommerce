@@ -7,7 +7,7 @@ const manrope = Manrope({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={manrope.className}>
+    <div className={`app ${manrope.className}`}>
       <ViewportProvider>
         <Component {...pageProps} />
       </ViewportProvider>
