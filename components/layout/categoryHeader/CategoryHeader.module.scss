@@ -1,0 +1,23 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.categoryHeader {
+  height: 102px;
+  background-color: $dark;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+
+  @include devices(tablet) {
+    height: 246px;
+
+    .heading {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 44px;
+      letter-spacing: 1.42857px;
+    }
+  }
+}
