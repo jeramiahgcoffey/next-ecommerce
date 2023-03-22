@@ -21,35 +21,40 @@ const Navbar = () => {
             <Link href={'/'}>
               <p className="subtitle">Home</p>
             </Link>
-            <Link href={'/'}>
+            <Link href={'/category/headphones'}>
               <p className="subtitle">Headphones</p>
             </Link>
-            <Link href={'/'}>
+            <Link href={'/category/speakers'}>
               <p className="subtitle">Speakers</p>
             </Link>
-            <Link href={'/'}>
+            <Link href={'/category/earphones'}>
               <p className="subtitle">Earphones</p>
             </Link>
           </div>
-          <Image src={cart} alt="Shopping cart icon" />
+          <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
         </>
       );
     } else if (width >= 600) {
       return (
         <>
           <div className={styles.leftContainer}>
-            <Image src={hamburger} id="hamburger" alt="Hamburger icon" />
+            <Image
+              className={styles.icon}
+              src={hamburger}
+              id="hamburger"
+              alt="Hamburger icon"
+            />
             <Image src={logo} alt="Logo" />
           </div>
-          <Image src={cart} alt="Shopping cart icon" />
+          <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
         </>
       );
     } else {
       return (
         <>
-          <Image src={hamburger} alt="Hamburger icon" />
+          <Image className={styles.icon} src={hamburger} alt="Hamburger icon" />
           <Image src={logo} alt="Logo" />
-          <Image src={cart} alt="Shopping cart icon" />
+          <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
         </>
       );
     }

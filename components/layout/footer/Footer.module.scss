@@ -69,6 +69,11 @@
         font-size: 13px;
         line-height: 25px;
         letter-spacing: 2px;
+        transition: all $transitionDuration;
+
+        &:hover {
+          color: $primary;
+        }
       }
     }
 

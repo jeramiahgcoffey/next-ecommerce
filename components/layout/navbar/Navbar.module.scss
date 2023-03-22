@@ -32,7 +32,16 @@
         color: white;
         text-decoration: inherit;
         cursor: pointer;
+        transition: all $transitionDuration;
+
+        &:hover {
+          color: $primary;
+        }
       }
+    }
+
+    .icon:hover {
+      color: $primary;
     }
   }
 }

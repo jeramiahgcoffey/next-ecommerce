@@ -39,7 +39,7 @@ const Footer = () => {
           {width >= 600 && width < 1000 ? (
             <div className={styles.container}>
               <div className={styles.copyright}>
-                Copyright © 2021. All Rights Reserved
+                Copyright © {new Date().getFullYear()}. All Rights Reserved
               </div>
               <div className={styles.icons}>
                 <Link href={'/'}>
@@ -71,7 +71,7 @@ const Footer = () => {
           ) : (
             <>
               <div className={styles.copyright}>
-                Copyright © 2021. All Rights Reserved
+                Copyright © {new Date().getFullYear()}. All Rights Reserved
               </div>
               <div className={styles.icons}>
                 <Link href={'/'}>
