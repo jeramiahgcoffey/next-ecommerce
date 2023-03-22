@@ -8,7 +8,7 @@
   height: 600px;
   width: 100%;
   margin-bottom: 75px;
-  background-color: $dark;
+  background-color: rgba($color: $dark, $alpha: 0.96);
 
   @include devices(tablet) {
     height: 775px;
