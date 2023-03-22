@@ -21,35 +21,35 @@ const Hero = () => {
   };
 
   return (
-    <div className={styles.hero}>
-      <div className={styles.imageContainer}>
-        <Image
-          className={styles.image}
-          src={headerImage()}
-          alt="Featured headphones"
-          // width={1440}
-          // height={729}
-          fill
-        />
-      </div>
-      <div className={styles.overlay}>
-        <div style={{ maxWidth: '1110px', margin: 'auto', height: '100%' }}>
-          <div className={styles.textContainer}>
-            <div className={`overline ${styles.overline}`}>new product</div>
-            {width < 600 ? (
-              <h2>xx99 mark ii headphones</h2>
-            ) : (
-              <h1>xx99 mark ii headphones</h1>
-            )}
-            <p>
-              Experience natural, lifelike audio and exceptional build quality
-              made for the passionate music enthusiast.
-            </p>
-            <Button handleClick={(e) => console.log(e)}>see product</Button>
+    <>
+      <div className={styles.hero}>
+        <div className={styles.imageContainer}>
+          <Image
+            className={styles.image}
+            src={headerImage()}
+            alt="Featured headphones"
+            fill
+          />
+        </div>
+        <div className={styles.overlay}>
+          <div className={styles.container}>
+            <div className={styles.textContainer}>
+              <div className={`overline ${styles.overline}`}>new product</div>
+              {width < 600 ? (
+                <h2>xx99 mark ii headphones</h2>
+              ) : (
+                <h1>xx99 mark ii headphones</h1>
+              )}
+              <p>
+                Experience natural, lifelike audio and exceptional build quality
+                made for the passionate music enthusiast.
+              </p>
+              <Button handleClick={(e) => console.log(e)}>see product</Button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

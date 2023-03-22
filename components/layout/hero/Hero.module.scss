@@ -2,30 +2,30 @@
 @import 'styles/mixins';
 
 .hero {
+  margin-top: -90px;
+  overflow: hidden;
+  position: relative;
   height: 600px;
   width: 100%;
-  position: relative;
   margin-bottom: 75px;
+  background-color: $dark;
 
   @include devices(tablet) {
     height: 775px;
+    margin-bottom: 100px;
+  }
+
+  @include devices(desktop) {
+    margin-top: -105px;
+    margin-bottom: 150px;
   }
 
   .imageContainer {
     position: relative;
     height: 100%;
     max-width: 1440px;
-    margin: auto;
-    margin-top: -95px;
     overflow: hidden;
-    z-index: -10;
-
-    @include devices(tablet) {
-      margin-top: -70px;
-    }
-    @include devices(desktop) {
-      margin-top: -110px;
-    }
+    margin: auto;
 
     .image {
       object-fit: cover;
@@ -34,66 +34,64 @@
 
   .overlay {
     position: absolute;
-    top: 95px;
-    left: 0;
-    right: 0;
-    margin: auto;
+    top: 0;
     background-color: rgba($color: black, $alpha: 0.35);
-    height: calc(100% - 95px);
+    height: 100%;
     width: 100%;
-    max-width: 1440px;
+    margin: auto;
 
-    @include devices(tablet) {
-      height: calc(100% - 70px);
-      top: 70px;
-    }
-    @include devices(desktop) {
-      height: calc(100% - 110px);
-      top: 110px;
-    }
-
-    .textContainer {
-      color: white;
+    .container {
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 30px;
-      max-width: 400px;
+      width: 100%;
+      max-width: 1110px;
       margin: auto;
+      margin-top: 40px;
+      display: flex;
 
       @include devices(desktop) {
-        text-align: left;
-        align-items: flex-start;
-        margin: 0;
-        padding-left: 24px;
+        margin-top: 25px;
       }
+      .textContainer {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 30px;
+        max-width: 400px;
+        margin: auto;
 
-      .overline {
-        color: $neutral;
-        opacity: 35%;
-        margin-bottom: 25px;
-      }
+        @include devices(desktop) {
+          text-align: left;
+          align-items: flex-start;
+          margin: 0;
+          padding-left: 24px;
+        }
 
-      h2 {
-        font-weight: 500;
-        font-size: 36px;
-        line-height: 40px;
-        letter-spacing: 1.28px;
-        margin-bottom: 25px;
-      }
+        .overline {
+          color: $neutral;
+          opacity: 35%;
+          margin-bottom: 25px;
+        }
 
-      h1 {
-        font-weight: 500;
+        h2 {
+          font-weight: 500;
+          font-size: 36px;
+          line-height: 40px;
+          letter-spacing: 1.28px;
+          margin-bottom: 25px;
+        }
 
-        margin-bottom: 25px;
-      }
+        h1 {
+          font-weight: 500;
+          margin-bottom: 25px;
+        }
 
-      p {
-        opacity: 65%;
-        margin-bottom: 30px;
+        p {
+          opacity: 65%;
+          margin-bottom: 30px;
+        }
       }
     }
   }

@@ -18,6 +18,10 @@
       gap: 10px;
       justify-content: center;
     }
+
+    @include devices(desktop) {
+      margin-bottom: 150px;
+    }
   }
 
   .zx9Card {
