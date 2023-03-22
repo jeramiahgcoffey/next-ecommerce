@@ -33,22 +33,31 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps<{ products: Product[] }> = async (
   context
 ) => {
-  const products = await prisma.product.findMany({
-    where: {
-      category: context.params?.category as string,
-    },
-  });
-
-  return {
-    props: {
-      products,
-    },
-  };
+  try {
+    const products = await prisma.product.findMany({
+      where: {
+        category: context.params?.category as string,
+      },
+    });
+    return {
+      props: {
+        products,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        products: [],
+      },
+      redirect: {
+        destination: '/error',
+      },
+    };
+  }
 };
 
 const Category = ({ products }: ICategoryPageProps) => {
-  console.log(products);
-
   return (
     <div className={styles.category}>
       <div className={styles.cards} id="categoryPageProductCards">

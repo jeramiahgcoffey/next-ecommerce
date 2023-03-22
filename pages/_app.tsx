@@ -17,7 +17,7 @@ export type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page) => <Layout>{page}</Layout>);
+  const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
     <div className={`app ${manrope.className}`}>
