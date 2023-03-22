@@ -1,3 +1,4 @@
+import useViewport from '@/hooks/useViewport';
 import Image from 'next/image';
 import { RxCaretRight } from 'react-icons/rx';
 import Button from '../../inputs/button/Button';
@@ -16,6 +17,8 @@ const ShopCard = ({
     console.log('click');
   },
 }: IShopCardProps) => {
+  const { width } = useViewport();
+
   return (
     <div className={styles.shopCard}>
       <Image
@@ -23,8 +26,8 @@ const ShopCard = ({
         src={image}
         alt={`${name} thumbnail`}
         // fill
-        width={150}
-        height={140}
+        width={width > 1000 ? 225 : 150}
+        height={width > 1000 ? 210 : 140}
       />
       <h6 className={styles.name}>{name}</h6>
       <Button handleClick={handler} variant="flat">

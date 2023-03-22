@@ -2,18 +2,29 @@
 @import 'styles/mixins';
 
 .shopCard {
-  // position: relative;
-  // object-fit: cover;
   background-color: $neutral;
   border-radius: 12px;
   text-align: center;
-  margin-bottom: 10px;
+  height: 165px;
   margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   flex-grow: 1;
+
+  @include devices(desktop) {
+    height: 204px;
+  }
 
   .thumbnail {
     margin-top: -58px;
-    margin-bottom: -20px;
+
+    @include devices(desktop) {
+      margin-top: -100px;
+      margin-bottom: -20px;
+    }
   }
 
   .name {
@@ -21,6 +32,12 @@
     font-size: 15px;
     line-height: 20px;
     letter-spacing: 1.07143px;
+
+    @include devices(desktop) {
+      font-size: 18px;
+      line-height: 25px;
+      letter-spacing: 1.28571px;
+    }
   }
 
   .buttonText {

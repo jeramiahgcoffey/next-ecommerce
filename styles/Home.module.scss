@@ -11,7 +11,7 @@
     max-width: 1110px;
 
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 120px;
 
     @include devices(tablet) {
       flex-direction: row;
@@ -32,7 +32,7 @@
     color: white;
     padding: 55px 30px;
     margin: auto;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
     overflow: hidden;
 
     height: 600px;
@@ -134,7 +134,7 @@
     height: 320px;
     max-width: 1110px;
     margin: auto;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
     border-radius: 12px;
     overflow: hidden;
     .container {
@@ -170,6 +170,7 @@
   .yx1Container {
     height: 427px;
     margin: auto;
+    margin-bottom: 120px;
     max-width: 1110px;
     display: flex;
     flex-direction: column;
@@ -180,7 +181,6 @@
       gap: 11px;
     }
 
-    margin-bottom: 25px;
     .container {
       position: relative;
       height: 200px;
