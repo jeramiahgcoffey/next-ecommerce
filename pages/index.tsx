@@ -1,12 +1,9 @@
 import ShopCard from '@/components/cards/shopCard/ShopCard';
 import Button from '@/components/inputs/button/Button';
 import About from '@/components/layout/about/About';
-import Footer from '@/components/layout/footer/Footer';
 import Hero from '@/components/layout/hero/Hero';
-import Navbar from '@/components/layout/navbar/Navbar';
 import useViewport from '@/hooks/useViewport';
 import styles from '@/styles/Home.module.scss';
-import Head from 'next/head';
 import Image from 'next/image';
 
 export default function Home() {
@@ -26,13 +23,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Audiophile</title>
-        <meta name="description" content="Audio Gear Shop" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Navbar />
       <Hero />
       <div className={styles.home}>
         <div className={styles.shopCardContainer}>
@@ -129,7 +119,6 @@ export default function Home() {
 
         <About />
       </div>
-      <Footer />
     </>
   );
 }
