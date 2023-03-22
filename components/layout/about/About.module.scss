@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
-  margin-bottom: 120px;
+  margin-bottom: 140px;
   max-width: 1110px;
 
   @include devices(tablet) {
@@ -27,7 +27,7 @@
     position: relative;
     height: 300px;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 
     @include devices(desktop) {
       height: 100%;
@@ -44,7 +44,7 @@
     height: 50%;
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: 32px;
 
     @include devices(desktop) {
       width: 100%;
@@ -54,6 +54,7 @@
 
     .heading {
       letter-spacing: 1px;
+      font-size: 28px;
 
       @include devices(tablet) {
         font-size: 40px;

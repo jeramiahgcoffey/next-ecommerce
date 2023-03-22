@@ -5,7 +5,7 @@
   position: relative;
   z-index: 2;
   background-color: $dark;
-  height: 80px;
+  height: 90px;
 
   .container {
     display: flex;
@@ -31,7 +31,7 @@
       a {
         color: white;
         text-decoration: inherit;
-        cursor: inherit;
+        cursor: pointer;
       }
     }
   }

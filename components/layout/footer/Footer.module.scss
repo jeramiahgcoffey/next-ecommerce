@@ -1,0 +1,83 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.footer {
+  position: relative;
+  height: 654px;
+  background-color: $dark;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  text-align: center;
+  padding: 38px 24px;
+  padding-top: 50px;
+
+  @include devices(tablet) {
+    height: 400px;
+    align-items: flex-start;
+    text-align: left;
+    padding: 39px 60px 40px 46px;
+  }
+
+  .decoration {
+    position: absolute;
+    top: 0;
+    width: 101px;
+    border-top: 4px solid $primary;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include devices(tablet) {
+      flex-direction: row;
+    }
+
+    a {
+      color: white;
+      text-decoration: inherit;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 25px;
+      letter-spacing: 2px;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .text {
+    font-weight: 500;
+    max-width: 400px;
+
+    @include devices(tablet) {
+      max-width: none;
+    }
+  }
+
+  .copyright {
+    font-weight: 700;
+  }
+
+  .text,
+  .copyright {
+    font-size: 15px;
+    line-height: 25px;
+    opacity: 0.5;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}
