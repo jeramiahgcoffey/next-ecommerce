@@ -1,5 +1,6 @@
 import ShopCard from '@/components/cards/shopCard/ShopCard';
 import Button from '@/components/inputs/button/Button';
+import About from '@/components/layout/about/About';
 import Hero from '@/components/layout/hero/Hero';
 import Navbar from '@/components/layout/navbar/Navbar';
 import useViewport from '@/hooks/useViewport';
@@ -124,6 +125,8 @@ export default function Home() {
             </Button>
           </div>
         </div>
+
+        <About />
       </div>
     </>
   );

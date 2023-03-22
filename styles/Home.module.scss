@@ -179,6 +179,11 @@
     @include devices(tablet) {
       flex-direction: row;
       gap: 11px;
+      margin-bottom: 0;
+    }
+
+    @include devices(desktop) {
+      margin-bottom: 80px;
     }
 
     .container {

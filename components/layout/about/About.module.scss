@@ -1,0 +1,82 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.about {
+  height: 698px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 120px;
+  max-width: 1110px;
+
+  @include devices(tablet) {
+    height: 633px;
+  }
+
+  @include devices(desktop) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    height: 588px;
+  }
+
+  .imageContainer {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 50px;
+
+    @include devices(desktop) {
+      height: 100%;
+      margin-bottom: 0;
+      max-width: 588px;
+    }
+
+    .image {
+      object-fit: cover;
+    }
+  }
+
+  .textContainer {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+
+    @include devices(desktop) {
+      width: 100%;
+      text-align: left;
+      max-width: 445px;
+    }
+
+    .heading {
+      letter-spacing: 1px;
+
+      @include devices(tablet) {
+        font-size: 40px;
+        line-height: 44px;
+        letter-spacing: 1.428px;
+      }
+    }
+
+    .paragraph {
+      color: rgba($color: #000000, $alpha: 0.6);
+    }
+
+    .paragraph,
+    .heading {
+      @include devices(tablet) {
+        padding-right: 75px;
+        padding-left: 75px;
+      }
+
+      @include devices(desktop) {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}
