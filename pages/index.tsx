@@ -1,4 +1,4 @@
-import ShopCard from '@/components/cards/shopCard/ShopCard';
+import ShopCardContainer from '@/components/containers/shopCardContainer/ShopCardContainer';
 import Button from '@/components/inputs/button/Button';
 import HomeLayout from '@/components/layout/HomeLayout';
 import useViewport from '@/hooks/useViewport';
@@ -24,20 +24,7 @@ export default function Home() {
   return (
     <>
       <div className={styles.home}>
-        <div className={styles.shopCardContainer}>
-          <ShopCard
-            image="/assets/shared/desktop/image-category-thumbnail-headphones.png"
-            name="Headphones"
-          />
-          <ShopCard
-            image="/assets/shared/desktop/image-category-thumbnail-speakers.png"
-            name="Speakers"
-          />
-          <ShopCard
-            image="/assets/shared/desktop/image-category-thumbnail-earphones.png"
-            name="Earphones"
-          />
-        </div>
+        <ShopCardContainer />
         <div className={styles.zx9Card}>
           <div className={styles.container}>
             <Image

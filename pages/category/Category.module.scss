@@ -16,6 +16,11 @@
   .cards {
     display: flex;
     flex-direction: column;
-    gap: 160px;
+    gap: 120px;
+    margin-bottom: 120px;
+
+    @include devices(tablet) {
+      gap: 160px;
+    }
   }
 }

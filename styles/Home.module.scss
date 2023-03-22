@@ -2,23 +2,6 @@
 @import 'styles/mixins';
 
 .home {
-  .shopCardContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-    margin-bottom: 105px;
-
-    @include devices(tablet) {
-      flex-direction: row;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    @include devices(desktop) {
-      margin-bottom: 150px;
-    }
-  }
-
   .zx9Card {
     background-color: $primary;
     border-radius: 12px;

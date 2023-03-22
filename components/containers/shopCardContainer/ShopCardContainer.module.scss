@@ -1,0 +1,19 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  margin-bottom: 105px;
+
+  @include devices(tablet) {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  @include devices(desktop) {
+    margin-bottom: 150px;
+  }
+}
