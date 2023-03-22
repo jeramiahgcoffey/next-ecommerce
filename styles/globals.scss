@@ -1,4 +1,5 @@
 @import 'styles/variables';
+@import 'styles/mixins';
 
 * {
   box-sizing: border-box;
@@ -91,4 +92,14 @@ p {
 
 .textPrimary {
   color: $primary;
+}
+
+#categoryPageProductCards {
+  @include devices(desktop) {
+    .productCard:nth-child(even) {
+      .productCardContainer {
+        flex-direction: row-reverse;
+      }
+    }
+  }
 }

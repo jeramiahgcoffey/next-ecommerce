@@ -10,16 +10,14 @@ interface IProductCardProps {
 
 const ProductCard = ({ name, image, children }: IProductCardProps) => {
   return (
-    <>
-      <div className={styles.productCard}>
-        <div className={styles.container}>
-          <div className={styles.imageContainer}>
-            <Image className={styles.image} src={image} alt={name} fill />
-          </div>
-          <div className={styles.body}>{children}</div>
+    <div className={`${styles.productCard} productCard`}>
+      <div className={`${styles.container} productCardContainer`}>
+        <div className={styles.imageContainer}>
+          <Image className={styles.image} src={image} alt={name} fill />
         </div>
+        <div className={styles.body}>{children}</div>
       </div>
-    </>
+    </div>
   );
 };
 
