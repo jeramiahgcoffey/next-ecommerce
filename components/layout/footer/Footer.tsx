@@ -20,13 +20,13 @@ const Footer = () => {
             <Link href={'/'}>
               <p className="subtitle">Home</p>
             </Link>
-            <Link href={'/'}>
+            <Link href={'/category/headphones'}>
               <p className="subtitle">Headphones</p>
             </Link>
-            <Link href={'/'}>
+            <Link href={'/category/speakers'}>
               <p className="subtitle">Speakers</p>
             </Link>
-            <Link href={'/'}>
+            <Link href={'/category/earphones'}>
               <p className="subtitle">Earphones</p>
             </Link>
           </nav>

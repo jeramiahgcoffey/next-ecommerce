@@ -40,8 +40,8 @@
       }
     }
 
-    .icon:hover {
-      color: $primary;
+    .icon {
+      cursor: pointer;
     }
   }
 }

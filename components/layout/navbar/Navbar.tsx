@@ -16,7 +16,7 @@ const Navbar = () => {
     if (width >= 1000) {
       return (
         <>
-          <Image src={logo} alt="Logo" />
+          <Image className={styles.logo} src={logo} alt="Logo" />
           <div className={styles.linkContainer}>
             <Link href={'/'}>
               <p className="subtitle">Home</p>
@@ -44,7 +44,8 @@ const Navbar = () => {
               id="hamburger"
               alt="Hamburger icon"
             />
-            <Image src={logo} alt="Logo" />
+
+            <Image className={styles.logo} src={logo} alt="Logo" />
           </div>
           <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
         </>
@@ -53,7 +54,7 @@ const Navbar = () => {
       return (
         <>
           <Image className={styles.icon} src={hamburger} alt="Hamburger icon" />
-          <Image src={logo} alt="Logo" />
+          <Image className={styles.logo} src={logo} alt="Logo" />
           <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
         </>
       );
