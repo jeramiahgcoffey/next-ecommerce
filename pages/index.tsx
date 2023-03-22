@@ -1,10 +1,10 @@
 import ShopCard from '@/components/cards/shopCard/ShopCard';
 import Button from '@/components/inputs/button/Button';
-import About from '@/components/layout/about/About';
-import Hero from '@/components/layout/hero/Hero';
+import HomeLayout from '@/components/layout/HomeLayout';
 import useViewport from '@/hooks/useViewport';
 import styles from '@/styles/Home.module.scss';
 import Image from 'next/image';
+import { ReactElement } from 'react';
 
 export default function Home() {
   const { width } = useViewport();
@@ -23,7 +23,6 @@ export default function Home() {
 
   return (
     <>
-      <Hero />
       <div className={styles.home}>
         <div className={styles.shopCardContainer}>
           <ShopCard
@@ -116,9 +115,11 @@ export default function Home() {
             </Button>
           </div>
         </div>
-
-        <About />
       </div>
     </>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <HomeLayout>{page}</HomeLayout>;
+};

@@ -1,9 +1,10 @@
 import Head from 'next/head';
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import Footer from './footer/Footer';
+import styles from './Layout.module.scss';
 import Navbar from './navbar/Navbar';
 
-const Layout = ({ children }: { children: ReactElement }) => {
+const Layout = ({ children }: { children: ReactElement | ReactNode }) => {
   return (
     <>
       <Head>
@@ -13,7 +14,7 @@ const Layout = ({ children }: { children: ReactElement }) => {
         <link rel="icon" href="/assets/favicon-32x32.png" />
       </Head>
       <Navbar />
-      {children}
+      <div className={styles.children}>{children}</div>
       <Footer />
     </>
   );

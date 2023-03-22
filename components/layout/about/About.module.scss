@@ -10,6 +10,7 @@
   margin: auto;
   margin-bottom: 90px;
   max-width: 1110px;
+  padding: 0 24px;
 
   @include devices(tablet) {
     max-height: 633px;

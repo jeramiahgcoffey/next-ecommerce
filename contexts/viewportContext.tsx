@@ -1,5 +1,11 @@
 import { throttle } from 'lodash';
-import { createContext, ReactElement, useEffect, useState } from 'react';
+import {
+  createContext,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useState,
+} from 'react';
 
 interface IViewportContext {
   width: number;
@@ -9,7 +15,11 @@ export const viewportContext = createContext<IViewportContext>({
   width: 0,
 });
 
-const ViewportProvider = ({ children }: { children: ReactElement }) => {
+const ViewportProvider = ({
+  children,
+}: {
+  children: ReactElement | ReactNode;
+}) => {
   const [width, setWidth] = useState(0);
 
   const handleResize = (width: number) => {
