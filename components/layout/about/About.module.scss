@@ -2,23 +2,24 @@
 @import 'styles/mixins';
 
 .about {
-  height: 698px;
+  max-height: 698px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
-  margin-bottom: 140px;
+  margin-bottom: 90px;
   max-width: 1110px;
 
   @include devices(tablet) {
-    height: 633px;
+    max-height: 633px;
   }
 
   @include devices(desktop) {
     flex-direction: row-reverse;
     justify-content: space-between;
-    height: 588px;
+    height: 540px;
+    gap: 30px;
   }
 
   .imageContainer {

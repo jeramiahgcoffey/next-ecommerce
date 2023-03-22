@@ -5,79 +5,121 @@
   position: relative;
   height: 654px;
   background-color: $dark;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  text-align: center;
-  padding: 38px 24px;
-  padding-top: 50px;
 
   @include devices(tablet) {
     height: 400px;
-    align-items: flex-start;
-    text-align: left;
-    padding: 39px 60px 40px 46px;
   }
 
-  .decoration {
-    position: absolute;
-    top: 0;
-    width: 101px;
-    border-top: 4px solid $primary;
+  @include devices(desktop) {
+    height: 365px;
   }
 
-  .nav {
+  .wrapper {
+    height: 100%;
+    max-width: 1110px;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-
-    @include devices(tablet) {
-      flex-direction: row;
-    }
-
-    a {
-      color: white;
-      text-decoration: inherit;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 13px;
-      line-height: 25px;
-      letter-spacing: 2px;
-    }
-  }
-
-  .container {
-    display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-  }
-
-  .text {
-    font-weight: 500;
-    max-width: 400px;
+    color: white;
+    text-align: center;
+    padding: 38px 24px;
+    padding-top: 50px;
 
     @include devices(tablet) {
-      max-width: none;
+      align-items: flex-start;
+      text-align: left;
+      padding: 39px 60px 40px 46px;
     }
-  }
 
-  .copyright {
-    font-weight: 700;
-  }
+    @include devices(desktop) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      align-items: flex-end;
+    }
 
-  .text,
-  .copyright {
-    font-size: 15px;
-    line-height: 25px;
-    opacity: 0.5;
-  }
+    .decoration {
+      position: absolute;
+      top: 0;
+      width: 101px;
+      border-top: 4px solid $primary;
+    }
 
-  .icons {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @include devices(tablet) {
+        flex-direction: row;
+      }
+
+      @include devices(desktop) {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      a {
+        color: white;
+        text-decoration: inherit;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 25px;
+        letter-spacing: 2px;
+      }
+    }
+
+    .nav,
+    .logo {
+      @include devices(desktop) {
+        margin-bottom: 36px;
+      }
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .text {
+      font-weight: 500;
+      max-width: 400px;
+
+      @include devices(tablet) {
+        max-width: none;
+      }
+    }
+
+    .copyright {
+      grid-row: 3;
+      font-weight: 700;
+
+      @include devices(desktop) {
+        margin-bottom: 8px;
+      }
+    }
+
+    .text,
+    .copyright {
+      font-size: 15px;
+      line-height: 25px;
+      opacity: 0.5;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      @include devices(desktop) {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
   }
 }
