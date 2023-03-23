@@ -1,5 +1,6 @@
 import useViewport from '@/hooks/useViewport';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { RxCaretRight } from 'react-icons/rx';
 import Button from '../../inputs/button/Button';
 import styles from './ShopCard.module.scss';
@@ -18,6 +19,7 @@ const ShopCard = ({
   },
 }: IShopCardProps) => {
   const { width } = useViewport();
+  const router = useRouter();
 
   return (
     <div className={styles.shopCard}>
@@ -30,7 +32,10 @@ const ShopCard = ({
         height={width > 1000 ? 210 : 140}
       />
       <h6 className={styles.name}>{name}</h6>
-      <Button handleClick={handler} variant="flat">
+      <Button
+        handleClick={() => router.push(`/category/${name}`)}
+        variant="flat"
+      >
         <div className={styles.buttonText}>
           <span>Shop</span>
           <RxCaretRight className={styles.icon} size={30} />
