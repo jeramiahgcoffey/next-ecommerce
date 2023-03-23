@@ -1,0 +1,17 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.product {
+  padding: 0 24px;
+  max-width: 1110px;
+  margin: 70px auto;
+
+  .back {
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

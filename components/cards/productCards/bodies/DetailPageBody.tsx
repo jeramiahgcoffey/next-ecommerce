@@ -21,6 +21,11 @@ const DetailPageBody = ({
   setQuantity,
   addToCart,
 }: IDetailPageBody) => {
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
   return (
     <div className={styles.body}>
       {isNew && (
@@ -28,7 +33,7 @@ const DetailPageBody = ({
       )}
       <h4>{name}</h4>
       <p>{description}</p>
-      <div className={styles.price}>{price}</div>
+      <div className={styles.price}>{formatter.format(price)}</div>
       <div className={styles.actions}>
         <NumberField
           value={quantity}
