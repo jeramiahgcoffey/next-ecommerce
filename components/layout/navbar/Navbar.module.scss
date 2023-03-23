@@ -5,11 +5,10 @@
 .overlay {
   width: 100vw;
   height: 100vh;
-  top: 90px;
+  top: 0;
   left: 0;
   right: 0;
   position: fixed;
-  z-index: 2;
 }
 
 .modal {
@@ -19,7 +18,7 @@
 
   .content {
     position: absolute;
-    top: 0;
+    top: 90px;
     left: 50%;
     transform: translate(-50%);
     background-color: white;
@@ -28,8 +27,8 @@
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     padding: 14px 28px;
-    z-index: 20;
     overflow-y: scroll;
+    z-index: 4;
 
     @include devices(tablet) {
       height: fit-content;
@@ -76,7 +75,8 @@
       }
     }
 
-    .icon {
+    .icon,
+    .logo {
       cursor: pointer;
     }
   }

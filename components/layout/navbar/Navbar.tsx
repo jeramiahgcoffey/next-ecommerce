@@ -21,7 +21,6 @@ const Navbar = () => {
   const toggleModal = () => {
     if (!modal) {
       document.body.style.overflowY = 'hidden';
-      // window.scrollTo(0, 0);
       setModal(true);
     } else {
       document.body.style.overflowY = 'unset';
@@ -103,7 +102,7 @@ const Navbar = () => {
     <nav className={styles.nav}>
       {modal && (
         <div className={styles.modal}>
-          <div className={styles.overlay}></div>
+          <div onClick={toggleModal} className={styles.overlay}></div>
           <div onClick={toggleModal} className={styles.content}>
             <ShopCardContainer />
           </div>
