@@ -2,6 +2,7 @@ import CategoryPageCard from '@/components/cards/productCards/CategoryPageCard';
 import ShopCardContainer from '@/components/containers/shopCardContainer/ShopCardContainer';
 import CategoryLayout from '@/components/layout/CategoryLayout';
 import { prisma } from '@/db/prismadb';
+import useViewport from '@/hooks/useViewport';
 import { GetStaticProps } from 'next';
 import { ReactNode } from 'react';
 import styles from './Category.module.scss';
@@ -58,6 +59,18 @@ export const getStaticProps: GetStaticProps<{ products: Product[] }> = async (
 };
 
 const Category = ({ products }: ICategoryPageProps) => {
+  const { width } = useViewport();
+
+  const getBreakpoint = (width: number) => {
+    if (width >= 1000) {
+      return 'desktop';
+    } else if (width >= 600) {
+      return 'tablet';
+    } else {
+      return 'mobile';
+    }
+  };
+
   return (
     <div className={styles.category}>
       <div className={styles.cards} id="categoryPageProductCards">
@@ -65,7 +78,7 @@ const Category = ({ products }: ICategoryPageProps) => {
           <CategoryPageCard
             key={product.id}
             name={product.name}
-            image={product.image.desktop.slice(1)}
+            image={product.image[getBreakpoint(width)].slice(1)}
             description={product.description}
             isNew={product.new}
           />
