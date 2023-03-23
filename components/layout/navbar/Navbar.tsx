@@ -7,12 +7,14 @@ import hamburger from '@/public//assets/shared/tablet/icon-hamburger.svg';
 import cart from '@/public/assets/shared/desktop/icon-cart.svg';
 import logo from '@/public/assets/shared/desktop/logo.svg';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 interface INavbarProps {}
 
 const Navbar = () => {
   const { width } = useViewport();
+  const router = useRouter();
 
   const [modal, setModal] = useState(false);
 
@@ -31,7 +33,12 @@ const Navbar = () => {
     if (width >= 1000) {
       return (
         <>
-          <Image className={styles.logo} src={logo} alt="Logo" />
+          <Image
+            onClick={() => router.push('/')}
+            className={styles.logo}
+            src={logo}
+            alt="Logo"
+          />
           <div className={styles.linkContainer}>
             <Link href={'/'}>
               <p className="subtitle">Home</p>
@@ -61,7 +68,12 @@ const Navbar = () => {
               alt="Hamburger icon"
             />
 
-            <Image className={styles.logo} src={logo} alt="Logo" />
+            <Image
+              onClick={() => router.push('/')}
+              className={styles.logo}
+              src={logo}
+              alt="Logo"
+            />
           </div>
           <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
         </>
@@ -75,7 +87,12 @@ const Navbar = () => {
             src={hamburger}
             alt="Hamburger icon"
           />
-          <Image className={styles.logo} src={logo} alt="Logo" />
+          <Image
+            onClick={() => router.push('/')}
+            className={styles.logo}
+            src={logo}
+            alt="Logo"
+          />
           <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
         </>
       );
