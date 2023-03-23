@@ -1,0 +1,52 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 560px;
+  margin-top: 32px;
+
+  @include devices(tablet) {
+    margin-top: 52px;
+  }
+
+  @include devices(desktop) {
+    text-align: left;
+    margin-top: 0;
+    max-width: 445px;
+  }
+
+  .overline {
+    color: $primary;
+    margin-bottom: 24px;
+
+    @include devices(tablet) {
+      margin-bottom: 16px;
+    }
+  }
+
+  h4 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+
+    @include devices(tablet) {
+      font-size: 40px;
+      line-height: 44px;
+      letter-spacing: 1.42857px;
+      margin-bottom: 32px;
+    }
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    opacity: 0.5;
+    margin-bottom: 24px;
+  }
+}

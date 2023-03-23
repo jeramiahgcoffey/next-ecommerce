@@ -1,16 +1,31 @@
 import Image from 'next/image';
 import styles from './Navbar.module.scss';
 
+import ShopCardContainer from '@/components/containers/shopCardContainer/ShopCardContainer';
 import useViewport from '@/hooks/useViewport';
 import hamburger from '@/public//assets/shared/tablet/icon-hamburger.svg';
 import cart from '@/public/assets/shared/desktop/icon-cart.svg';
 import logo from '@/public/assets/shared/desktop/logo.svg';
 import Link from 'next/link';
+import { useState } from 'react';
 
 interface INavbarProps {}
 
 const Navbar = () => {
   const { width } = useViewport();
+
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    if (!modal) {
+      document.body.style.overflowY = 'hidden';
+      // window.scrollTo(0, 0);
+      setModal(true);
+    } else {
+      document.body.style.overflowY = 'unset';
+      setModal(false);
+    }
+  };
 
   const navItems = () => {
     if (width >= 1000) {
@@ -40,6 +55,7 @@ const Navbar = () => {
           <div className={styles.leftContainer}>
             <Image
               className={styles.icon}
+              onClick={() => toggleModal()}
               src={hamburger}
               id="hamburger"
               alt="Hamburger icon"
@@ -53,7 +69,12 @@ const Navbar = () => {
     } else {
       return (
         <>
-          <Image className={styles.icon} src={hamburger} alt="Hamburger icon" />
+          <Image
+            onClick={() => toggleModal()}
+            className={styles.icon}
+            src={hamburger}
+            alt="Hamburger icon"
+          />
           <Image className={styles.logo} src={logo} alt="Logo" />
           <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
         </>
@@ -63,6 +84,14 @@ const Navbar = () => {
 
   return (
     <nav className={styles.nav}>
+      {modal && (
+        <div className={styles.modal}>
+          <div className={styles.overlay}></div>
+          <div onClick={toggleModal} className={styles.content}>
+            <ShopCardContainer />
+          </div>
+        </div>
+      )}
       <div className={styles.container}>{navItems()}</div>
     </nav>
   );

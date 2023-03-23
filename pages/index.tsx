@@ -1,10 +1,11 @@
 import ShopCardContainer from '@/components/containers/shopCardContainer/ShopCardContainer';
 import Button from '@/components/inputs/button/Button';
+import Hero from '@/components/layout/hero/Hero';
 import HomeLayout from '@/components/layout/HomeLayout';
 import useViewport from '@/hooks/useViewport';
 import styles from '@/styles/Home.module.scss';
 import Image from 'next/image';
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 
 export default function Home() {
   const { width } = useViewport();
@@ -23,6 +24,7 @@ export default function Home() {
 
   return (
     <>
+      <Hero />
       <div className={styles.home}>
         <ShopCardContainer />
         <div className={styles.zx9Card}>

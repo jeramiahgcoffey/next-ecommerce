@@ -2,6 +2,9 @@
 @import 'styles/mixins';
 
 .home {
+  padding: 0 24px;
+  max-width: 1110px;
+  margin: auto;
   .zx9Card {
     background-color: $primary;
     border-radius: 12px;
@@ -65,7 +68,7 @@
       }
 
       .textContainer {
-        z-index: 2;
+        z-index: 1;
         max-width: 350px;
 
         @include devices(desktop) {

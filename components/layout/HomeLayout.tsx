@@ -7,7 +7,6 @@ import styles from './HomeLayout.module.scss';
 const HomeLayout = ({ children }: { children: ReactElement }) => {
   return (
     <>
-      <Hero />
       <div className={styles.children}>{children}</div>
       <About />
     </>
