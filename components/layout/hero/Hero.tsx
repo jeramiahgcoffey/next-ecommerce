@@ -6,9 +6,11 @@ import styles from './Hero.module.scss';
 import Button from '@/components/inputs/button/Button';
 import useViewport from '@/hooks/useViewport';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const Hero = () => {
   const { width } = useViewport();
+  const router = useRouter();
 
   const headerImage = () => {
     if (width >= 1000) {
@@ -44,7 +46,13 @@ const Hero = () => {
                 Experience natural, lifelike audio and exceptional build quality
                 made for the passionate music enthusiast.
               </p>
-              <Button handleClick={(e) => console.log(e)}>see product</Button>
+              <Button
+                handleClick={() =>
+                  router.push('/product/xx99-mark-two-headphones')
+                }
+              >
+                see product
+              </Button>
             </div>
           </div>
         </div>

@@ -5,10 +5,12 @@ import HomeLayout from '@/components/layout/HomeLayout';
 import useViewport from '@/hooks/useViewport';
 import styles from '@/styles/Home.module.scss';
 import Image from 'next/image';
-import { ReactElement, useState } from 'react';
+import { useRouter } from 'next/router';
+import { ReactElement } from 'react';
 
 export default function Home() {
   const { width } = useViewport();
+  const router = useRouter();
 
   const source = (
     fileName: 'speaker-zx9.png' | 'speaker-zx7.jpg' | 'earphones-yx1.jpg'
@@ -51,7 +53,7 @@ export default function Home() {
               </p>
               <div className={styles.button}>
                 <Button
-                  handleClick={() => console.log('click')}
+                  handleClick={() => router.push('/product/zx9-speaker')}
                   variant="inverted"
                 >
                   See product
@@ -73,7 +75,7 @@ export default function Home() {
               <h3>zx7 speaker</h3>
               <div className={styles.button}>
                 <Button
-                  handleClick={() => console.log('click')}
+                  handleClick={() => router.push('/product/zx7-speaker')}
                   variant="secondary"
                 >
                   See Product
@@ -97,7 +99,7 @@ export default function Home() {
             <Button
               variant="secondary"
               handleClick={() => {
-                console.log('click');
+                router.push('/product/yx1-earphones');
               }}
             >
               See Product
