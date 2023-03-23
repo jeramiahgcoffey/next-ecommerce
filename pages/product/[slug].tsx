@@ -1,4 +1,5 @@
 import DetailPageCard from '@/components/cards/productCards/DetailPageCard';
+import ProductFeatures from '@/components/containers/shopCardContainer/productFeatures/ProductFeatures';
 import ProductLayout from '@/components/layout/ProductLayout';
 import { prisma } from '@/db/prismadb';
 import { GetServerSideProps } from 'next';
@@ -11,6 +12,7 @@ type Product = {
   name: string;
   new: boolean;
   description: string;
+  features: string;
   price: number;
 };
 
@@ -55,6 +57,9 @@ const Product = ({ product }: IProductPageProps) => {
             setQuantity={setQty}
             addToCart={() => console.log('click')}
           />
+        </div>
+        <div className={styles.features}>
+          <ProductFeatures features={product.features} />
         </div>
       </div>
     </div>
