@@ -1,13 +1,22 @@
 import Button from '@/components/inputs/button/Button';
+import { useRouter } from 'next/router';
 import styles from './CategoryPageBody.module.scss';
 
 interface ICategoryPageBody {
   name: string;
   description: string;
+  slug: string;
   isNew: boolean;
 }
 
-const CategoryPageBody = ({ name, description, isNew }: ICategoryPageBody) => {
+const CategoryPageBody = ({
+  name,
+  description,
+  slug,
+  isNew,
+}: ICategoryPageBody) => {
+  const router = useRouter();
+
   return (
     <div className={styles.body}>
       {isNew && (
@@ -18,7 +27,7 @@ const CategoryPageBody = ({ name, description, isNew }: ICategoryPageBody) => {
       <div className={styles.button}>
         <Button
           handleClick={() => {
-            console.log('click');
+            router.push(`/product/${slug}`);
           }}
         >
           see product

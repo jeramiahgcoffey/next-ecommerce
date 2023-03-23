@@ -12,6 +12,7 @@ type Product = {
   category: string;
   name: string;
   description: string;
+  slug: string;
   image: { desktop: string; mobile: string; tablet: string };
   new: boolean;
 };
@@ -83,6 +84,7 @@ const Category = ({ products }: ICategoryPageProps) => {
             name={product.name}
             image={product.image[getBreakpoint(width)].slice(1)}
             description={product.description}
+            slug={product.slug}
             isNew={product.new}
           />
         ))}
