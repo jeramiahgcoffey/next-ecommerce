@@ -39,6 +39,9 @@ export const getStaticProps: GetStaticProps<{ products: Product[] }> = async (
       where: {
         category: context.params?.category as string,
       },
+      orderBy: {
+        price: 'desc',
+      },
     });
     return {
       props: {
