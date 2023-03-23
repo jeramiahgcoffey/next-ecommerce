@@ -10,6 +10,7 @@
 
   @include devices(tablet) {
     margin-top: 52px;
+    text-align: left;
   }
 
   @include devices(desktop) {
@@ -48,5 +49,25 @@
     line-height: 25px;
     opacity: 0.5;
     margin-bottom: 24px;
+  }
+
+  .price {
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1.28571px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    @include devices(tablet) {
+      justify-content: space-between;
+      max-width: 300px;
+      gap: 0;
+    }
   }
 }

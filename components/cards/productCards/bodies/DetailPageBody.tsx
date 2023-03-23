@@ -1,13 +1,26 @@
 import Button from '@/components/inputs/button/Button';
+import NumberField from '@/components/inputs/numberField/NumberField';
 import styles from './DetailPageBody.module.scss';
 
 interface IDetailPageBody {
   name: string;
   description: string;
   isNew: boolean;
+  price: number;
+  quantity: number;
+  setQuantity: (qty: number) => void;
+  addToCart: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const DetailPageBody = ({ name, description, isNew }: IDetailPageBody) => {
+const DetailPageBody = ({
+  name,
+  description,
+  isNew,
+  price,
+  quantity,
+  setQuantity,
+  addToCart,
+}: IDetailPageBody) => {
   return (
     <div className={styles.body}>
       {isNew && (
@@ -15,14 +28,15 @@ const DetailPageBody = ({ name, description, isNew }: IDetailPageBody) => {
       )}
       <h4>{name}</h4>
       <p>{description}</p>
-      <div className={styles.button}>
-        <Button
-          handleClick={() => {
-            console.log('click');
-          }}
-        >
-          see product
-        </Button>
+      <div className={styles.price}>{price}</div>
+      <div className={styles.actions}>
+        <NumberField
+          value={quantity}
+          handleChangeEvent={(e) => setQuantity(parseInt(e.target.value) || 0)}
+          handleDecrement={() => setQuantity(quantity - 1)}
+          handleIncrement={() => setQuantity(quantity + 1)}
+        />
+        <Button handleClick={addToCart}>Add to cart</Button>
       </div>
     </div>
   );
