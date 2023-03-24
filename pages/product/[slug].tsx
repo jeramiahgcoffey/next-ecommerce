@@ -7,6 +7,7 @@ import ProductGallery, {
 import ProductSuggestions from '@/components/containers/productSuggestions/ProductSuggestions';
 import ProductLayout from '@/components/layout/ProductLayout';
 import { prisma } from '@/db/prismadb';
+import useViewport from '@/hooks/useViewport';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -50,7 +51,18 @@ export const getServerSideProps: GetServerSideProps<{
 
 const Product = ({ product }: IProductPageProps) => {
   const router = useRouter();
+  const { width } = useViewport();
   const [qty, setQty] = useState(1);
+
+  const getBreakpoint = (width: number) => {
+    if (width >= 1000) {
+      return 'desktop';
+    } else if (width >= 600) {
+      return 'tablet';
+    } else {
+      return 'mobile';
+    }
+  };
 
   if (product === null) return null;
   return (
@@ -62,7 +74,7 @@ const Product = ({ product }: IProductPageProps) => {
       <div className={styles.card}>
         <DetailPageCard
           name={product.name}
-          image={product.image.mobile.slice(1)}
+          image={product.image[getBreakpoint(width)].slice(1)}
           description={product.description}
           price={product.price}
           quantity={qty}

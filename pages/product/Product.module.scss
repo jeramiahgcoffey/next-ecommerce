@@ -4,11 +4,24 @@
 .product {
   padding: 0 24px;
   max-width: 1110px;
-  margin: 70px auto;
+  margin: 16px auto;
+  margin-bottom: 120px;
+  @include devices(tablet) {
+    margin-top: 33px;
+  }
+  @include devices(desktop) {
+    margin-bottom: 190px;
+  }
 
   .back {
     cursor: pointer;
     margin-bottom: 20px;
+    @include devices(tablet) {
+      margin-bottom: 24px;
+    }
+    @include devices(desktop) {
+      margin-bottom: 56px;
+    }
 
     &:hover {
       color: $primary;
@@ -16,13 +29,24 @@
   }
 
   .card {
-    margin-bottom: 80px;
+    margin-bottom: 88px;
+    @include devices(tablet) {
+      margin-bottom: 120px;
+    }
+    @include devices(desktop) {
+      margin-bottom: 160px;
+    }
   }
 
   .details {
+    margin-bottom: 88px;
+    @include devices(tablet) {
+      margin-bottom: 120px;
+    }
     @include devices(desktop) {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 160px;
 
       .features {
         max-width: 635px;
@@ -35,11 +59,20 @@
     }
     .features {
       width: 100%;
-      margin-bottom: 80px;
+      margin-bottom: 88px;
+      @include devices(tablet) {
+        margin-bottom: 120px;
+      }
+      @include devices(desktop) {
+        margin-bottom: 0;
+      }
     }
+  }
 
-    .includes {
-      margin-bottom: 80px;
+  .gallery {
+    margin-bottom: 120px;
+    @include devices(desktop) {
+      margin-bottom: 160px;
     }
   }
 }

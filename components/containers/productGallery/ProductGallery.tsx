@@ -1,3 +1,4 @@
+import useViewport from '@/hooks/useViewport';
 import Image from 'next/image';
 import styles from './ProductGallery.module.scss';
 
@@ -12,20 +13,31 @@ interface IProductGalleryProps {
 }
 
 const ProductGallery = ({ gallery }: IProductGalleryProps) => {
+  const { width } = useViewport();
+  const getBreakpoint = (width: number) => {
+    if (width >= 1000) {
+      return 'desktop';
+    } else if (width >= 600) {
+      return 'tablet';
+    } else {
+      return 'mobile';
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.images}>
         <div className={styles.small}>
           <div className={styles.image}>
             <Image
-              src={gallery.first.mobile.slice(1)}
+              src={gallery.first[getBreakpoint(width)].slice(1)}
               fill
               alt={`${'Product'} image`}
             />
           </div>
           <div className={styles.image}>
             <Image
-              src={gallery.second.mobile.slice(1)}
+              src={gallery.second[getBreakpoint(width)].slice(1)}
               fill
               alt={`${'Product'} image`}
             />
@@ -33,7 +45,7 @@ const ProductGallery = ({ gallery }: IProductGalleryProps) => {
         </div>
         <div className={styles.large}>
           <Image
-            src={gallery.third.mobile.slice(1)}
+            src={gallery.third[getBreakpoint(width)].slice(1)}
             fill
             alt={`${'Product'} image`}
           />

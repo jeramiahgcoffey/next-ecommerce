@@ -27,7 +27,6 @@ const ShopCard = ({
         className={styles.thumbnail}
         src={image}
         alt={`${name} thumbnail`}
-        // fill
         width={width > 1000 ? 225 : 150}
         height={width > 1000 ? 210 : 140}
       />
