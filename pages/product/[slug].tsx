@@ -12,30 +12,15 @@ import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styles from './Product.module.scss';
-
-type Product = {
-  image: { mobile: string; tablet: string; desktop: string };
-  name: string;
-  new: boolean;
-  description: string;
-  features: string;
-  includes: { item: string; quantity: number }[];
-  gallery: { first: Gallery; second: Gallery; third: Gallery };
-  others: {
-    name: string;
-    image: { mobile: string; tablet: string; desktop: string };
-    slug: string;
-  }[];
-  price: number;
-};
+import { Product as TProduct } from '@prisma/client';
 
 interface IProductPageProps {
-  product: Product;
+  product: TProduct;
 }
 
-export const getServerSideProps: GetServerSideProps<{
-  product: Product | null;
-}> = async (context) => {
+export const getServerSideProps: GetServerSideProps<IProductPageProps> = async (
+  context
+) => {
   const productArr = await prisma.product.findMany({
     where: {
       slug: context.params?.slug as string,

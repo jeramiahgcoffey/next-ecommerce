@@ -6,19 +6,10 @@ import useViewport from '@/hooks/useViewport';
 import { GetStaticProps } from 'next';
 import { ReactNode } from 'react';
 import styles from './Category.module.scss';
-
-type Product = {
-  id: string;
-  category: string;
-  name: string;
-  description: string;
-  slug: string;
-  image: { desktop: string; mobile: string; tablet: string };
-  new: boolean;
-};
+import { Product as TProduct } from '@prisma/client';
 
 interface ICategoryPageProps {
-  products: Product[];
+  products: TProduct[];
 }
 
 export async function getStaticPaths() {
@@ -32,7 +23,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps: GetStaticProps<{ products: Product[] }> = async (
+export const getStaticProps: GetStaticProps<ICategoryPageProps> = async (
   context
 ) => {
   try {
