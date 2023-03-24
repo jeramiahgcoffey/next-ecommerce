@@ -1,5 +1,6 @@
 import DetailPageCard from '@/components/cards/productCards/DetailPageCard';
-import ProductFeatures from '@/components/containers/shopCardContainer/productFeatures/ProductFeatures';
+import InTheBox from '@/components/containers/inTheBox/InTheBox';
+import ProductFeatures from '@/components/containers/productFeatures/ProductFeatures';
 import ProductLayout from '@/components/layout/ProductLayout';
 import { prisma } from '@/db/prismadb';
 import { GetServerSideProps } from 'next';
@@ -13,6 +14,7 @@ type Product = {
   new: boolean;
   description: string;
   features: string;
+  includes: { item: string; quantity: number }[];
   price: number;
 };
 
@@ -46,20 +48,24 @@ const Product = ({ product }: IProductPageProps) => {
       <div onClick={() => router.back()} className={styles.back}>
         Go Back
       </div>
+
+      <div className={styles.card}>
+        <DetailPageCard
+          name={product.name}
+          image={product.image.mobile.slice(1)}
+          description={product.description}
+          price={product.price}
+          quantity={qty}
+          setQuantity={setQty}
+          addToCart={() => console.log('click')}
+        />
+      </div>
       <div className={styles.details}>
-        <div className={styles.card}>
-          <DetailPageCard
-            name={product.name}
-            image={product.image.mobile.slice(1)}
-            description={product.description}
-            price={product.price}
-            quantity={qty}
-            setQuantity={setQty}
-            addToCart={() => console.log('click')}
-          />
-        </div>
         <div className={styles.features}>
           <ProductFeatures features={product.features} />
+        </div>
+        <div className={styles.includes}>
+          <InTheBox items={product.includes} />
         </div>
       </div>
     </div>
