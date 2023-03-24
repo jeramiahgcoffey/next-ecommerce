@@ -1,6 +1,9 @@
 import DetailPageCard from '@/components/cards/productCards/DetailPageCard';
 import InTheBox from '@/components/containers/inTheBox/InTheBox';
 import ProductFeatures from '@/components/containers/productFeatures/ProductFeatures';
+import ProductGallery, {
+  Gallery,
+} from '@/components/containers/productGallery/ProductGallery';
 import ProductLayout from '@/components/layout/ProductLayout';
 import { prisma } from '@/db/prismadb';
 import { GetServerSideProps } from 'next';
@@ -15,6 +18,7 @@ type Product = {
   description: string;
   features: string;
   includes: { item: string; quantity: number }[];
+  gallery: { first: Gallery; second: Gallery; third: Gallery };
   price: number;
 };
 
@@ -67,6 +71,10 @@ const Product = ({ product }: IProductPageProps) => {
         <div className={styles.includes}>
           <InTheBox items={product.includes} />
         </div>
+      </div>
+
+      <div className={styles.gallery}>
+        <ProductGallery gallery={product.gallery} />
       </div>
     </div>
   );

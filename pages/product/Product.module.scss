@@ -23,7 +23,6 @@
     @include devices(desktop) {
       display: flex;
       justify-content: space-between;
-      // gap: 125px;
 
       .features {
         max-width: 635px;

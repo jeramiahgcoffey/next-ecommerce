@@ -1,0 +1,46 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.container {
+  .images {
+    height: 756px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include devices(tablet) {
+      flex-direction: row;
+      gap: 18px;
+    }
+
+    img {
+      object-fit: cover;
+    }
+    .small {
+      width: 100%;
+      .image {
+        margin-bottom: 20px;
+        border-radius: 12px;
+        overflow: hidden;
+        height: 174px;
+        position: relative;
+
+        @include devices(desktop) {
+          height: 280px;
+        }
+      }
+    }
+
+    .large {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 368px;
+      position: relative;
+
+      @include devices(desktop) {
+        height: 592px;
+      }
+    }
+  }
+}
