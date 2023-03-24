@@ -4,6 +4,7 @@ import ProductFeatures from '@/components/containers/productFeatures/ProductFeat
 import ProductGallery, {
   Gallery,
 } from '@/components/containers/productGallery/ProductGallery';
+import ProductSuggestions from '@/components/containers/productSuggestions/ProductSuggestions';
 import ProductLayout from '@/components/layout/ProductLayout';
 import { prisma } from '@/db/prismadb';
 import { GetServerSideProps } from 'next';
@@ -19,6 +20,11 @@ type Product = {
   features: string;
   includes: { item: string; quantity: number }[];
   gallery: { first: Gallery; second: Gallery; third: Gallery };
+  others: {
+    name: string;
+    image: { mobile: string; tablet: string; desktop: string };
+    slug: string;
+  }[];
   price: number;
 };
 
@@ -75,6 +81,10 @@ const Product = ({ product }: IProductPageProps) => {
 
       <div className={styles.gallery}>
         <ProductGallery gallery={product.gallery} />
+      </div>
+
+      <div className={styles.suggestions}>
+        <ProductSuggestions products={product.others} />
       </div>
     </div>
   );

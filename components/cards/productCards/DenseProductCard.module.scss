@@ -1,0 +1,36 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.productCard {
+  width: 100%;
+  .container {
+    text-align: center;
+    width: 100%;
+    .imageContainer {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      position: relative;
+      height: 120px;
+      min-width: 100px;
+
+      @include devices(tablet) {
+        height: 318px;
+        width: 100%;
+      }
+      .image {
+        object-fit: cover;
+      }
+    }
+
+    .body {
+      .name {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 33px;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+      }
+    }
+  }
+}

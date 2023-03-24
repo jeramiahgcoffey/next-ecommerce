@@ -3,10 +3,10 @@
 
 .container {
   .images {
-    height: 756px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-bottom: 120px;
 
     @include devices(tablet) {
       flex-direction: row;
@@ -18,12 +18,22 @@
     }
     .small {
       width: 100%;
+
+      @include devices(tablet) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
       .image {
         margin-bottom: 20px;
         border-radius: 12px;
         overflow: hidden;
         height: 174px;
         position: relative;
+
+        @include devices(tablet) {
+          margin-bottom: 0;
+        }
 
         @include devices(desktop) {
           height: 280px;
