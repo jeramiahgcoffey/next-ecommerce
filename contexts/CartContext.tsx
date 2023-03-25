@@ -1,7 +1,7 @@
 import { Product as TProduct } from '@prisma/client';
 import { createContext, ReactElement, ReactNode, useState } from 'react';
 
-type TCartItem = {
+export type TCartItem = {
   product: TProduct;
   quantity: number;
 };

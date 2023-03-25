@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import { ReactElement, ReactNode } from 'react';
+import Cart from '../containers/cart/Cart';
 import Footer from './footer/Footer';
 import styles from './Layout.module.scss';
+import Modal from './modal/Modal';
 import Navbar from './navbar/Navbar';
 
 const Layout = ({ children }: { children: ReactElement | ReactNode }) => {
@@ -14,6 +16,9 @@ const Layout = ({ children }: { children: ReactElement | ReactNode }) => {
         <link rel="icon" href="/assets/favicon-32x32.png" />
       </Head>
       <Navbar />
+      <Modal>
+        <Cart />
+      </Modal>
       <div className={styles.children}>{children}</div>
       <Footer />
     </>
