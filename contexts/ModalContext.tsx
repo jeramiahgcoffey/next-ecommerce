@@ -1,4 +1,4 @@
-interface IModalContext {
-  isOpen: boolean;
-  content: React.ReactElement;
-}
+// interface IModalContext {
+//   isOpen: boolean;
+//   content: React.ReactElement;
+// }
