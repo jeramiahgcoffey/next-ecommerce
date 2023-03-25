@@ -11,7 +11,7 @@ interface IViewportContext {
   width: number;
 }
 
-export const viewportContext = createContext<IViewportContext>({
+export const ViewportContext = createContext<IViewportContext>({
   width: 0,
 });
 
@@ -41,9 +41,9 @@ const ViewportProvider = ({
   }, []);
 
   return (
-    <viewportContext.Provider value={{ width }}>
+    <ViewportContext.Provider value={{ width }}>
       {children}
-    </viewportContext.Provider>
+    </ViewportContext.Provider>
   );
 };
 

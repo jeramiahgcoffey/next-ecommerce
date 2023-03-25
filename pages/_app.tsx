@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
-import ViewportProvider from '@/contexts/viewportContext';
+import CartProvider from '@/contexts/CartContext';
+import ViewportProvider from '@/contexts/ViewportContext';
 import '@/styles/globals.scss';
 import { Manrope } from '@next/font/google';
 import { NextPage } from 'next';
@@ -22,7 +23,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <div className={`app ${manrope.className}`}>
       <ViewportProvider>
-        <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
+        <CartProvider>
+          <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
+        </CartProvider>
       </ViewportProvider>
     </div>
   );

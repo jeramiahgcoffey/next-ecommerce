@@ -37,8 +37,12 @@ const DetailPageBody = ({
       <div className={styles.actions}>
         <NumberField
           value={quantity}
-          handleChangeEvent={(e) => setQuantity(parseInt(e.target.value) || 0)}
-          handleDecrement={() => setQuantity(quantity - 1)}
+          handleChangeEvent={(e) =>
+            setQuantity(Math.abs(parseInt(e.target.value)) || 1)
+          }
+          handleDecrement={() =>
+            setQuantity(quantity - 1 > 0 ? quantity - 1 : 1)
+          }
           handleIncrement={() => setQuantity(quantity + 1)}
         />
         <Button handleClick={addToCart}>Add to cart</Button>

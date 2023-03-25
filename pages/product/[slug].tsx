@@ -1,18 +1,17 @@
 import DetailPageCard from '@/components/cards/productCards/DetailPageCard';
 import InTheBox from '@/components/containers/inTheBox/InTheBox';
 import ProductFeatures from '@/components/containers/productFeatures/ProductFeatures';
-import ProductGallery, {
-  Gallery,
-} from '@/components/containers/productGallery/ProductGallery';
+import ProductGallery from '@/components/containers/productGallery/ProductGallery';
 import ProductSuggestions from '@/components/containers/productSuggestions/ProductSuggestions';
 import ProductLayout from '@/components/layout/ProductLayout';
 import { prisma } from '@/db/prismadb';
+import useCart from '@/hooks/useCart';
 import useViewport from '@/hooks/useViewport';
+import { Product as TProduct } from '@prisma/client';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styles from './Product.module.scss';
-import { Product as TProduct } from '@prisma/client';
 
 interface IProductPageProps {
   product: TProduct;
@@ -38,6 +37,7 @@ const Product = ({ product }: IProductPageProps) => {
   const router = useRouter();
   const { width } = useViewport();
   const [qty, setQty] = useState(1);
+  const { cart, addProduct } = useCart();
 
   const getBreakpoint = (width: number) => {
     if (width >= 1000) {
@@ -64,7 +64,10 @@ const Product = ({ product }: IProductPageProps) => {
           price={product.price}
           quantity={qty}
           setQuantity={setQty}
-          addToCart={() => console.log('click')}
+          addToCart={() => {
+            addProduct(product, qty);
+            setQty(1);
+          }}
         />
       </div>
       <div className={styles.details}>
