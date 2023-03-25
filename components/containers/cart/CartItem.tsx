@@ -3,6 +3,7 @@ import { TCartItem } from '@/contexts/CartContext';
 import useCart from '@/hooks/useCart';
 import Image from 'next/image';
 import styles from './CartItem.module.scss';
+import { formatterWithCents as formatter } from '@/lib/currencyFormatter';
 
 interface ICartItemProps {
   cartItem: TCartItem;
@@ -14,12 +15,6 @@ const CartItem = ({ cartItem }: ICartItemProps) => {
   const shortenName = (name: string): string => {
     return name.replace('Mark', 'MK').split(' ').slice(0, -1).join(' ');
   };
-
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  });
 
   return (
     <div className={styles.item}>

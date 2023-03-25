@@ -10,12 +10,14 @@ interface ICartContext {
   cart: TCartItem[];
   addProduct: (product: TProduct, quantity?: number) => void;
   removeProduct: (product: TProduct, quantity?: number) => void;
+  totalItems: () => number;
 }
 
 export const CartContext = createContext<ICartContext>({
   cart: [],
   addProduct: () => {},
   removeProduct: () => {},
+  totalItems: () => 0,
 });
 
 const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
@@ -52,8 +54,16 @@ const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
     });
   };
 
+  const totalItems = () => {
+    return cart
+      .map((item) => item.quantity)
+      .reduce((acc, curr) => acc + curr, 0);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addProduct, removeProduct }}>
+    <CartContext.Provider
+      value={{ cart, addProduct, removeProduct, totalItems }}
+    >
       {children}
     </CartContext.Provider>
   );

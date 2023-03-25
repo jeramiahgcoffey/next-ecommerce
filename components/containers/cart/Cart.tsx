@@ -4,13 +4,7 @@ import styles from './Cart.module.scss';
 import CartItem from './CartItem';
 
 const Cart = () => {
-  const { cart, addProduct, removeProduct } = useCart();
-
-  const totalItems = () => {
-    return cart
-      .map((item) => item.quantity)
-      .reduce((acc, curr) => acc + curr, 0);
-  };
+  const { cart, addProduct, removeProduct, totalItems } = useCart();
 
   return (
     <div className={styles.cart}>

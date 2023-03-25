@@ -1,12 +1,12 @@
-import styles from './Category.module.scss';
 import CategoryPageCard from '@/components/cards/productCards/CategoryPageCard';
 import ShopCardContainer from '@/components/containers/shopCardContainer/ShopCardContainer';
 import CategoryLayout from '@/components/layout/CategoryLayout';
-import useViewport from '@/hooks/useViewport';
 import { prisma } from '@/db/prismadb';
+import useViewport from '@/hooks/useViewport';
+import styles from '@/styles/Category.module.scss';
+import { Product as TProduct } from '@prisma/client';
 import { GetStaticProps } from 'next';
 import { ReactNode } from 'react';
-import { Product as TProduct } from '@prisma/client';
 
 interface ICategoryPageProps {
   products: TProduct[];

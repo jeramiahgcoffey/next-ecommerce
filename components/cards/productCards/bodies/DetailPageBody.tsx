@@ -1,6 +1,7 @@
 import Button from '@/components/inputs/button/Button';
 import NumberField from '@/components/inputs/numberField/NumberField';
 import styles from './DetailPageBody.module.scss';
+import { formatter } from '@/lib/currencyFormatter';
 
 interface IDetailPageBody {
   name: string;
@@ -21,11 +22,6 @@ const DetailPageBody = ({
   setQuantity,
   addToCart,
 }: IDetailPageBody) => {
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  });
-
   return (
     <div className={styles.body}>
       {isNew && (

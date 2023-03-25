@@ -1,3 +1,4 @@
+import useCart from '@/hooks/useCart';
 import useModal from '@/hooks/useModal';
 import Head from 'next/head';
 import { ReactElement, ReactNode } from 'react';
@@ -9,6 +10,7 @@ import Navbar from './navbar/Navbar';
 
 const Layout = ({ children }: { children: ReactElement | ReactNode }) => {
   const { isOpen } = useModal();
+  const { cart } = useCart();
 
   return (
     <>
@@ -21,7 +23,11 @@ const Layout = ({ children }: { children: ReactElement | ReactNode }) => {
       <Navbar />
       {isOpen && (
         <Modal>
-          <Cart />
+          {!!cart.length ? (
+            <Cart />
+          ) : (
+            <p style={{ padding: '20px' }}>Wow, such empty!</p>
+          )}
         </Modal>
       )}
       <div className={styles.children}>{children}</div>

@@ -11,7 +11,7 @@ import { Product as TProduct } from '@prisma/client';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import styles from './Product.module.scss';
+import styles from '@/styles/Product.module.scss';
 
 interface IProductPageProps {
   product: TProduct;
