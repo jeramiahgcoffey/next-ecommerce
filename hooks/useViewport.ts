@@ -1,4 +1,4 @@
-import { ViewportContext } from '@/contexts/ViewportContext';
+import { ViewportContext } from '@/contexts/viewportContext';
 import { useContext } from 'react';
 
 const useViewport = () => {

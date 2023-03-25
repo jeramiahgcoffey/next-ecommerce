@@ -1,6 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import CartProvider from '@/contexts/CartContext';
-import ViewportProvider from '@/contexts/ViewportContext';
+import ViewportProvider from '@/contexts/viewportContext';
 import '@/styles/globals.scss';
 import { Manrope } from '@next/font/google';
 import { NextPage } from 'next';
