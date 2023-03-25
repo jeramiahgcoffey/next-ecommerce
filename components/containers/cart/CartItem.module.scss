@@ -1,2 +1,22 @@
 @import 'styles/variables';
 @import 'styles/mixins';
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .image {
+      position: relative;
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+}

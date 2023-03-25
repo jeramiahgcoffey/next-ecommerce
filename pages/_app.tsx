@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import CartProvider from '@/contexts/CartContext';
+import ModalProvider from '@/contexts/ModalContext';
 import ViewportProvider from '@/contexts/viewportContext';
 import '@/styles/globals.scss';
 import { Manrope } from '@next/font/google';
@@ -23,9 +24,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <div className={`app ${manrope.className}`}>
       <ViewportProvider>
-        <CartProvider>
-          <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
-        </CartProvider>
+        <ModalProvider>
+          <CartProvider>
+            <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
+          </CartProvider>
+        </ModalProvider>
       </ViewportProvider>
     </div>
   );

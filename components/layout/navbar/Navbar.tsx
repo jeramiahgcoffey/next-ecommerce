@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from './Navbar.module.scss';
 
 import ShopCardContainer from '@/components/containers/shopCardContainer/ShopCardContainer';
+import useModal from '@/hooks/useModal';
 import useViewport from '@/hooks/useViewport';
 import hamburger from '@/public//assets/shared/tablet/icon-hamburger.svg';
 import cart from '@/public/assets/shared/desktop/icon-cart.svg';
@@ -10,15 +11,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-interface INavbarProps {}
-
 const Navbar = () => {
   const { width } = useViewport();
+  const { toggleModal: toggleCart } = useModal();
   const router = useRouter();
 
   const [modal, setModal] = useState(false);
 
-  const toggleModal = () => {
+  const toggleNav = () => {
     if (!modal) {
       document.body.style.overflowY = 'hidden';
       setModal(true);
@@ -52,7 +52,12 @@ const Navbar = () => {
               <p className="subtitle">Earphones</p>
             </Link>
           </div>
-          <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
+          <Image
+            onClick={toggleCart}
+            className={styles.icon}
+            src={cart}
+            alt="Shopping cart icon"
+          />
         </>
       );
     } else if (width >= 600) {
@@ -61,7 +66,7 @@ const Navbar = () => {
           <div className={styles.leftContainer}>
             <Image
               className={styles.icon}
-              onClick={() => toggleModal()}
+              onClick={() => toggleNav()}
               src={hamburger}
               id="hamburger"
               alt="Hamburger icon"
@@ -74,14 +79,19 @@ const Navbar = () => {
               alt="Logo"
             />
           </div>
-          <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
+          <Image
+            onClick={toggleCart}
+            className={styles.icon}
+            src={cart}
+            alt="Shopping cart icon"
+          />
         </>
       );
     } else {
       return (
         <>
           <Image
-            onClick={() => toggleModal()}
+            onClick={() => toggleNav()}
             className={styles.icon}
             src={hamburger}
             alt="Hamburger icon"
@@ -92,7 +102,12 @@ const Navbar = () => {
             src={logo}
             alt="Logo"
           />
-          <Image className={styles.icon} src={cart} alt="Shopping cart icon" />
+          <Image
+            onClick={toggleCart}
+            className={styles.icon}
+            src={cart}
+            alt="Shopping cart icon"
+          />
         </>
       );
     }
@@ -102,8 +117,8 @@ const Navbar = () => {
     <nav className={styles.nav}>
       {modal && (
         <div className={styles.modal}>
-          <div onClick={toggleModal} className={styles.overlay}></div>
-          <div onClick={toggleModal} className={styles.content}>
+          <div onClick={toggleNav} className={styles.overlay}></div>
+          <div onClick={toggleNav} className={styles.content}>
             <ShopCardContainer />
           </div>
         </div>

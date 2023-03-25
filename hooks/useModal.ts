@@ -6,3 +6,5 @@ const useModal = () => {
 
   return { isOpen, setContent, toggleModal };
 };
+
+export default useModal;
