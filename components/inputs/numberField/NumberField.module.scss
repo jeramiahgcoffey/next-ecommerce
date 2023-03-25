@@ -34,6 +34,7 @@ $size: 35px;
   align-items: center;
   justify-content: center;
   padding: 20px 20px;
+  cursor: pointer;
 
   span {
     opacity: 25%;
@@ -45,5 +46,28 @@ $size: 35px;
     span {
       opacity: 100%;
     }
+  }
+}
+
+.dense {
+  $size: 30px;
+  .input,
+  .control {
+    width: $size;
+    background-color: $neutral;
+    border: none;
+    outline: none;
+    line-height: 18px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .input {
+    padding: 8px 0;
+  }
+
+  .control {
+    padding: 8px 8px;
   }
 }

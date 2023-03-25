@@ -6,6 +6,7 @@ interface INumberFieldProps {
   handleChangeEvent: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleDecrement: () => void;
   handleIncrement: () => void;
+  dense?: boolean;
 }
 
 const NumberField = ({
@@ -14,9 +15,10 @@ const NumberField = ({
   handleChangeEvent,
   handleDecrement,
   handleIncrement,
+  dense = false,
 }: INumberFieldProps) => {
   return (
-    <div>
+    <div className={`${dense && styles.dense}`}>
       <button onClick={handleDecrement} className={styles.control}>
         <span>-</span>
       </button>

@@ -11,6 +11,16 @@ interface ICartItemProps {
 const CartItem = ({ cartItem }: ICartItemProps) => {
   const { cart, addProduct, removeProduct } = useCart();
 
+  const shortenName = (name: string): string => {
+    return name.replace('Mark', 'MK').split(' ').slice(0, -1).join(' ');
+  };
+
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  });
+
   return (
     <div className={styles.item}>
       <div className={styles.product}>
@@ -22,12 +32,13 @@ const CartItem = ({ cartItem }: ICartItemProps) => {
           />
         </div>
         <div className={styles.info}>
-          <h6>{cartItem.product.name}</h6>
-          <span>{cartItem.product.price}</span>
+          <h6>{shortenName(cartItem.product.name)}</h6>
+          <span>{formatter.format(cartItem.product.price)}</span>
         </div>
       </div>
       <div className={styles.input}>
         <NumberField
+          dense
           value={cartItem.quantity}
           handleIncrement={() => addProduct(cartItem.product)}
           handleDecrement={() => removeProduct(cartItem.product)}

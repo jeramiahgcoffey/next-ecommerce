@@ -5,17 +5,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 15px;
+  margin-bottom: 24px;
   .product {
     display: flex;
     justify-content: space-between;
+    gap: 12px;
     align-items: center;
     .image {
+      border-radius: 8px;
       position: relative;
       overflow: hidden;
-      width: 100px;
-      height: 100px;
+      width: 64px;
+      height: 64px;
       img {
         object-fit: cover;
+      }
+    }
+    .info {
+      h6 {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 25px;
+      }
+
+      span {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 25px;
+        opacity: 0.5;
       }
     }
   }

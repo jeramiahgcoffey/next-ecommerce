@@ -6,10 +6,16 @@ import CartItem from './CartItem';
 const Cart = () => {
   const { cart, addProduct, removeProduct } = useCart();
 
+  const totalItems = () => {
+    return cart
+      .map((item) => item.quantity)
+      .reduce((acc, curr) => acc + curr, 0);
+  };
+
   return (
     <div className={styles.cart}>
       <div className={styles.heading}>
-        <h5>cart (0)</h5>
+        <h5>cart ({totalItems()})</h5>
         <a href="">Remove all</a>
       </div>
       <div className={styles.items}>

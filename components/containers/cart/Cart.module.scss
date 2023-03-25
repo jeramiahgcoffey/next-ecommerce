@@ -2,11 +2,31 @@
 @import 'styles/mixins';
 
 .cart {
+  max-width: 380px;
+  padding: 32px;
   .heading,
   .total {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .heading {
+    margin-bottom: 32px;
+    h5 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 25px;
+      letter-spacing: 1.28571px;
+    }
+  }
+
+  .items {
+    margin-bottom: 32px;
+  }
+
+  .total {
+    margin-bottom: 24px;
   }
 
   .button {
