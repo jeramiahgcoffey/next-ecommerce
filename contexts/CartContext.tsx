@@ -28,7 +28,6 @@ const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
   const [cart, setCart] = useState<TCartItem[]>([]);
 
   const addProduct = (product: TProduct, quantity = 1) => {
-    console.log(product, quantity);
     if (quantity < 1) return;
     setCart((prevCart) => {
       let cart = [...prevCart];

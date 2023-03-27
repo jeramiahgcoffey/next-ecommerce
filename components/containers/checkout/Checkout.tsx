@@ -110,6 +110,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
         </div>
       </div>
       <div className={styles.section}>
+        <h6 className="subtitle">payment details</h6>
         <div className={styles.field}>
           <RadioGroup
             items={[
