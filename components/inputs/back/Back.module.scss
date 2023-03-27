@@ -1,0 +1,17 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.back {
+  cursor: pointer;
+  margin-bottom: 20px;
+  @include devices(tablet) {
+    margin-bottom: 24px;
+  }
+  @include devices(desktop) {
+    margin-bottom: 56px;
+  }
+
+  &:hover {
+    color: $primary;
+  }
+}

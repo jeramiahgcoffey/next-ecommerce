@@ -12,6 +12,7 @@ import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styles from '@/styles/Product.module.scss';
+import Back from '@/components/inputs/back/Back';
 
 interface IProductPageProps {
   product: TProduct;
@@ -34,10 +35,9 @@ export const getServerSideProps: GetServerSideProps<IProductPageProps> = async (
 };
 
 const Product = ({ product }: IProductPageProps) => {
-  const router = useRouter();
   const { width } = useViewport();
   const [qty, setQty] = useState(1);
-  const { cart, addProduct } = useCart();
+  const { addProduct } = useCart();
 
   const getBreakpoint = (width: number) => {
     if (width >= 1000) {
@@ -52,9 +52,7 @@ const Product = ({ product }: IProductPageProps) => {
   if (product === null) return null;
   return (
     <div className={styles.product}>
-      <div onClick={() => router.back()} className={styles.back}>
-        Go Back
-      </div>
+      <Back />
 
       <div className={styles.card}>
         <DetailPageCard

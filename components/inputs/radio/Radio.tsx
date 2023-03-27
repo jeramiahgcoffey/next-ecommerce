@@ -23,6 +23,7 @@ const Radio = ({
         name={groupName}
         value={value}
         onChange={handleChangeEvent}
+        checked={checked}
       />
       <div className={styles.radioRadio}></div>
       {label}

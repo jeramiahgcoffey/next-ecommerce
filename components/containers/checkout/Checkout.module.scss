@@ -1,0 +1,31 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.checkout {
+  background-color: white;
+  padding: 24px;
+  padding-bottom: 2px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+
+  h4 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+
+  .section {
+    margin-bottom: 32px;
+
+    h6 {
+      color: $primary;
+      margin-bottom: 16px;
+    }
+
+    .field {
+      margin-bottom: 24px;
+    }
+  }
+}
