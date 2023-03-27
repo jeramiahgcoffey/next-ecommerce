@@ -1,7 +1,8 @@
 import Button from '@/components/inputs/button/Button';
 import NumberField from '@/components/inputs/numberField/NumberField';
-import styles from './DetailPageBody.module.scss';
 import { formatter } from '@/lib/currencyFormatter';
+import { useRouter } from 'next/router';
+import styles from './DetailPageBody.module.scss';
 
 interface IDetailPageBody {
   name: string;
@@ -22,6 +23,8 @@ const DetailPageBody = ({
   setQuantity,
   addToCart,
 }: IDetailPageBody) => {
+  const router = useRouter();
+
   return (
     <div className={styles.body}>
       {isNew && (
@@ -41,7 +44,14 @@ const DetailPageBody = ({
           }
           handleIncrement={() => setQuantity(quantity + 1)}
         />
-        <Button handleClick={addToCart}>Add to cart</Button>
+        <Button
+          handleClick={(e) => {
+            addToCart(e);
+            router.back();
+          }}
+        >
+          Add to cart
+        </Button>
       </div>
     </div>
   );

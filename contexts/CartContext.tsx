@@ -11,6 +11,8 @@ interface ICartContext {
   addProduct: (product: TProduct, quantity?: number) => void;
   removeProduct: (product: TProduct, quantity?: number) => void;
   totalItems: () => number;
+  removeAll: () => void;
+  subtotal: () => number;
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -18,12 +20,15 @@ export const CartContext = createContext<ICartContext>({
   addProduct: () => {},
   removeProduct: () => {},
   totalItems: () => 0,
+  removeAll: () => {},
+  subtotal: () => 0,
 });
 
 const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
   const [cart, setCart] = useState<TCartItem[]>([]);
 
   const addProduct = (product: TProduct, quantity = 1) => {
+    console.log(product, quantity);
     if (quantity < 1) return;
     setCart((prevCart) => {
       let cart = [...prevCart];
@@ -47,7 +52,7 @@ const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
       } else {
         cart[idx].quantity -= quantity;
         if (cart[idx].quantity <= 0) {
-          cart = cart.slice(idx);
+          cart = cart.slice(idx + 1);
         }
         return cart;
       }
@@ -60,9 +65,26 @@ const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
       .reduce((acc, curr) => acc + curr, 0);
   };
 
+  const removeAll = () => {
+    setCart([]);
+  };
+
+  const subtotal = () => {
+    return cart
+      .map((item) => item.product.price * item.quantity)
+      .reduce((acc, curr) => acc + curr);
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, addProduct, removeProduct, totalItems }}
+      value={{
+        cart,
+        addProduct,
+        removeProduct,
+        totalItems,
+        removeAll,
+        subtotal,
+      }}
     >
       {children}
     </CartContext.Provider>

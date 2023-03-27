@@ -10,7 +10,7 @@ interface ICartItemProps {
 }
 
 const CartItem = ({ cartItem }: ICartItemProps) => {
-  const { cart, addProduct, removeProduct } = useCart();
+  const { addProduct, removeProduct } = useCart();
 
   const shortenName = (name: string): string => {
     return name.replace('Mark', 'MK').split(' ').slice(0, -1).join(' ');
