@@ -3,7 +3,7 @@ import { TCartItem } from '@/contexts/CartContext';
 import useCart from '@/hooks/useCart';
 import Image from 'next/image';
 import styles from './CartItem.module.scss';
-import { formatterWithCents as formatter } from '@/lib/currencyFormatter';
+import { formatter } from '@/lib/currencyFormatter';
 
 interface ICartItemProps {
   cartItem: TCartItem;
