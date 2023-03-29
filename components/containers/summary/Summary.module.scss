@@ -1,0 +1,24 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.summary {
+  background-color: white;
+  padding: 32px 24px;
+  padding-bottom: 2px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+
+  h4 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1.28571px;
+    margin-bottom: 30px;
+  }
+
+  .items {
+    .item {
+      margin-bottom: 24px;
+    }
+  }
+}

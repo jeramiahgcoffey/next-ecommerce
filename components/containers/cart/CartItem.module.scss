@@ -23,7 +23,7 @@
       }
     }
     .info {
-      max-width: 70px;
+      // max-width: 70px;
       h6 {
         font-weight: 700;
         font-size: 15px;
@@ -37,5 +37,12 @@
         opacity: 0.5;
       }
     }
+  }
+  .quantity {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1.28571px;
+    opacity: 0.5;
   }
 }

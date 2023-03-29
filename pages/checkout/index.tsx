@@ -1,4 +1,5 @@
 import { Checkout as CheckoutForm } from '@/components/containers/checkout/Checkout';
+import Summary from '@/components/containers/summary/Summary';
 import Back from '@/components/inputs/back/Back';
 import useCart from '@/hooks/useCart';
 import styles from '@/styles/Checkout.module.scss';
@@ -52,6 +53,7 @@ const Checkout = () => {
       <div className={styles.container}>
         <Back />
         <CheckoutForm fields={formFields} setFields={setFormFields} />
+        <Summary />
       </div>
     </div>
   );

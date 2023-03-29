@@ -1,15 +1,16 @@
 import NumberField from '@/components/inputs/numberField/NumberField';
 import { TCartItem } from '@/contexts/CartContext';
 import useCart from '@/hooks/useCart';
+import { formatter } from '@/lib/currencyFormatter';
 import Image from 'next/image';
 import styles from './CartItem.module.scss';
-import { formatter } from '@/lib/currencyFormatter';
 
 interface ICartItemProps {
   cartItem: TCartItem;
+  isStatic?: boolean;
 }
 
-const CartItem = ({ cartItem }: ICartItemProps) => {
+const CartItem = ({ cartItem, isStatic = false }: ICartItemProps) => {
   const { addProduct, removeProduct } = useCart();
 
   const shortenName = (name: string): string => {
@@ -32,15 +33,19 @@ const CartItem = ({ cartItem }: ICartItemProps) => {
         </div>
       </div>
       <div className={styles.input}>
-        <NumberField
-          dense
-          value={cartItem.quantity}
-          handleIncrement={() => addProduct(cartItem.product)}
-          handleDecrement={() => removeProduct(cartItem.product)}
-          handleChangeEvent={(e) => {
-            console.log('change');
-          }}
-        />
+        {isStatic ? (
+          <span className={styles.quantity}>x{cartItem.quantity}</span>
+        ) : (
+          <NumberField
+            dense
+            value={cartItem.quantity}
+            handleIncrement={() => addProduct(cartItem.product)}
+            handleDecrement={() => removeProduct(cartItem.product)}
+            handleChangeEvent={(e) => {
+              console.log('change');
+            }}
+          />
+        )}
       </div>
     </div>
   );
