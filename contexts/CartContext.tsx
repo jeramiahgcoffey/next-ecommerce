@@ -71,7 +71,7 @@ const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
   const subtotal = () => {
     return cart
       .map((item) => item.product.price * item.quantity)
-      .reduce((acc, curr) => acc + curr);
+      .reduce((acc, curr) => acc + curr, 0);
   };
 
   return (

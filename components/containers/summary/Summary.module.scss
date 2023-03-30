@@ -17,8 +17,49 @@
   }
 
   .items {
+    margin-bottom: 32px;
     .item {
       margin-bottom: 24px;
     }
+  }
+
+  .costs {
+    margin-bottom: 32px;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+
+      .label {
+        opacity: 0.5;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 25px;
+        text-transform: uppercase;
+      }
+
+      .value,
+      .total {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+      }
+
+      .total {
+        color: $primary;
+      }
+    }
+
+    .bottom {
+      margin-top: 24px;
+    }
+  }
+  .button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
   }
 }
