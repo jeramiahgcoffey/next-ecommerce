@@ -1,5 +1,11 @@
 import { Product as TProduct } from '@prisma/client';
-import { createContext, ReactElement, ReactNode, useState } from 'react';
+import {
+  ReactElement,
+  ReactNode,
+  createContext,
+  useEffect,
+  useState,
+} from 'react';
 
 export type TCartItem = {
   product: TProduct;
@@ -25,7 +31,11 @@ export const CartContext = createContext<ICartContext>({
 });
 
 const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
-  const [cart, setCart] = useState<TCartItem[]>([]);
+  const [cart, setCart] = useState<TCartItem[]>(
+    typeof window !== 'undefined'
+      ? JSON.parse(localStorage.getItem('cart') || '') || []
+      : []
+  );
 
   const addProduct = (product: TProduct, quantity = 1) => {
     if (quantity < 1) return;
@@ -73,6 +83,10 @@ const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
       .map((item) => item.product.price * item.quantity)
       .reduce((acc, curr) => acc + curr, 0);
   };
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <CartContext.Provider
