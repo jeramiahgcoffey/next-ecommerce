@@ -17,20 +17,22 @@ const RadioGroup = ({
   handleChangeEvent,
 }: IRadioGroupProps) => {
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.labelContainer}>
         <label className={`${styles.label}`}>{label}</label>
       </div>
-      {items.map((item) => (
-        <Radio
-          key={item.value}
-          groupName={groupName}
-          value={item.value}
-          label={item.label}
-          checked={item.value === selected}
-          handleChangeEvent={handleChangeEvent}
-        />
-      ))}
+      <div className={styles.radios}>
+        {items.map((item) => (
+          <Radio
+            key={item.value}
+            groupName={groupName}
+            value={item.value}
+            label={item.label}
+            checked={item.value === selected}
+            handleChangeEvent={handleChangeEvent}
+          />
+        ))}
+      </div>
     </div>
   );
 };

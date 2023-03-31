@@ -1,8 +1,23 @@
-.labelContainer {
-  margin-bottom: 17px;
+@import 'styles/variables';
+@import 'styles/mixins';
 
-  .label {
-    font-size: 12px;
-    font-weight: bold;
+.container {
+  @include devices(tablet) {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .labelContainer {
+    margin-bottom: 17px;
+    width: 100%;
+    .label {
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  .radios {
+    width: 100%;
   }
 }

@@ -24,6 +24,14 @@
       margin-bottom: 16px;
     }
 
+    .container {
+      @include devices(tablet) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 16px;
+      }
+    }
+
     .field {
       margin-bottom: 24px;
     }

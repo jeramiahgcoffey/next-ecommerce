@@ -28,38 +28,40 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
       <h4>checkout</h4>
       <div className={styles.section}>
         <h6 className="subtitle">billing details</h6>
-        <div className={styles.field}>
-          <TextField
-            placeholder="John Doe"
-            label="Name"
-            name="name"
-            value={fields.billing.name}
-            handleChangeEvent={(e) => {
-              handleFormChange(e, 'billing');
-            }}
-          />
-        </div>
-        <div className={styles.field}>
-          <TextField
-            placeholder="jdoe@email.com"
-            label="Email Address"
-            name="email"
-            value={fields.billing.email}
-            handleChangeEvent={(e) => {
-              handleFormChange(e, 'billing');
-            }}
-          />
-        </div>
-        <div className={styles.field}>
-          <TextField
-            placeholder="+1 512-555-5555"
-            label="Phone Number"
-            name="phone"
-            value={fields.billing.phone}
-            handleChangeEvent={(e) => {
-              handleFormChange(e, 'billing');
-            }}
-          />
+        <div className={styles.container}>
+          <div className={styles.field}>
+            <TextField
+              placeholder="John Doe"
+              label="Name"
+              name="name"
+              value={fields.billing.name}
+              handleChangeEvent={(e) => {
+                handleFormChange(e, 'billing');
+              }}
+            />
+          </div>
+          <div className={styles.field}>
+            <TextField
+              placeholder="jdoe@email.com"
+              label="Email Address"
+              name="email"
+              value={fields.billing.email}
+              handleChangeEvent={(e) => {
+                handleFormChange(e, 'billing');
+              }}
+            />
+          </div>
+          <div className={styles.field}>
+            <TextField
+              placeholder="+1 512-555-5555"
+              label="Phone Number"
+              name="phone"
+              value={fields.billing.phone}
+              handleChangeEvent={(e) => {
+                handleFormChange(e, 'billing');
+              }}
+            />
+          </div>
         </div>
       </div>
       <div className={styles.section}>
@@ -75,38 +77,40 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
             }}
           />
         </div>
-        <div className={styles.field}>
-          <TextField
-            placeholder="10101"
-            label="ZIP Code"
-            name="zip"
-            value={fields.shipping.zip}
-            handleChangeEvent={(e) => {
-              handleFormChange(e, 'shipping');
-            }}
-          />
-        </div>
-        <div className={styles.field}>
-          <TextField
-            placeholder="Any Town"
-            label="City"
-            name="city"
-            value={fields.shipping.city}
-            handleChangeEvent={(e) => {
-              handleFormChange(e, 'shipping');
-            }}
-          />
-        </div>
-        <div className={styles.field}>
-          <TextField
-            placeholder="USA"
-            label="Country"
-            name="country"
-            value={fields.shipping.country}
-            handleChangeEvent={(e) => {
-              handleFormChange(e, 'shipping');
-            }}
-          />
+        <div className={styles.container}>
+          <div className={styles.field}>
+            <TextField
+              placeholder="10101"
+              label="ZIP Code"
+              name="zip"
+              value={fields.shipping.zip}
+              handleChangeEvent={(e) => {
+                handleFormChange(e, 'shipping');
+              }}
+            />
+          </div>
+          <div className={styles.field}>
+            <TextField
+              placeholder="Any Town"
+              label="City"
+              name="city"
+              value={fields.shipping.city}
+              handleChangeEvent={(e) => {
+                handleFormChange(e, 'shipping');
+              }}
+            />
+          </div>
+          <div className={styles.field}>
+            <TextField
+              placeholder="USA"
+              label="Country"
+              name="country"
+              value={fields.shipping.country}
+              handleChangeEvent={(e) => {
+                handleFormChange(e, 'shipping');
+              }}
+            />
+          </div>
         </div>
       </div>
       <div className={styles.section}>
@@ -135,27 +139,29 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
         </div>
         {fields.payment.method === 'e-money' && (
           <>
-            <div className={styles.field}>
-              <TextField
-                placeholder="111111111"
-                label="e-Money Number"
-                name="eNumber"
-                value={fields.payment.eNumber}
-                handleChangeEvent={(e) => {
-                  handleFormChange(e, 'payment');
-                }}
-              />
-            </div>
-            <div className={styles.field}>
-              <TextField
-                placeholder="1234"
-                label="e-Money PIN"
-                name="pin"
-                value={fields.payment.pin}
-                handleChangeEvent={(e) => {
-                  handleFormChange(e, 'payment');
-                }}
-              />
+            <div className={styles.container}>
+              <div className={styles.field}>
+                <TextField
+                  placeholder="111111111"
+                  label="e-Money Number"
+                  name="eNumber"
+                  value={fields.payment.eNumber}
+                  handleChangeEvent={(e) => {
+                    handleFormChange(e, 'payment');
+                  }}
+                />
+              </div>
+              <div className={styles.field}>
+                <TextField
+                  placeholder="1234"
+                  label="e-Money PIN"
+                  name="pin"
+                  value={fields.payment.pin}
+                  handleChangeEvent={(e) => {
+                    handleFormChange(e, 'payment');
+                  }}
+                />
+              </div>
             </div>
           </>
         )}
