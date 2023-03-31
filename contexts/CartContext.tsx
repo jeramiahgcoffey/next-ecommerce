@@ -33,7 +33,7 @@ export const CartContext = createContext<ICartContext>({
 const CartProvider = ({ children }: { children: ReactNode | ReactElement }) => {
   const [cart, setCart] = useState<TCartItem[]>(
     typeof window !== 'undefined'
-      ? JSON.parse(localStorage.getItem('cart') || '') || []
+      ? JSON.parse(localStorage.getItem('cart') || '{}') || []
       : []
   );
 
