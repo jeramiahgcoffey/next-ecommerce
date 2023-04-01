@@ -1,7 +1,7 @@
 import RadioGroup from '@/components/inputs/radio/RadioGroup';
 import TextField from '@/components/inputs/textField/TextField';
 import { IFormFields } from '@/pages/checkout';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import styles from './Checkout.module.scss';
 
 interface ICheckoutFormProps {
@@ -10,6 +10,28 @@ interface ICheckoutFormProps {
 }
 
 const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    zip: '',
+    city: '',
+    country: '',
+    method: '',
+    pin: '',
+    eNumber: '',
+  });
+
+  const validateField = (field: string, value: string) => {
+    if (!value || !value.length) {
+      setErrors((prev) => ({
+        ...prev,
+        [field]: `${field} cannot be empty.`,
+      }));
+    }
+  };
+
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     section: 'billing' | 'shipping' | 'payment'
@@ -21,6 +43,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
         [e.target.name]: e.target.value,
       },
     }));
+    validateField(e.target.name, e.target.value);
   };
 
   return (
@@ -34,6 +57,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
               placeholder="John Doe"
               label="Name"
               name="name"
+              error={errors.name}
               value={fields.billing.name}
               handleChangeEvent={(e) => {
                 handleFormChange(e, 'billing');
@@ -45,6 +69,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
               placeholder="jdoe@email.com"
               label="Email Address"
               name="email"
+              error={errors.email}
               value={fields.billing.email}
               handleChangeEvent={(e) => {
                 handleFormChange(e, 'billing');
@@ -56,6 +81,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
               placeholder="+1 512-555-5555"
               label="Phone Number"
               name="phone"
+              error={errors.phone}
               value={fields.billing.phone}
               handleChangeEvent={(e) => {
                 handleFormChange(e, 'billing');
