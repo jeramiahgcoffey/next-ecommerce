@@ -21,6 +21,18 @@ interface ICheckoutFormProps {
 }
 
 const Checkout = ({ fields, setFields, errors }: ICheckoutFormProps) => {
+  const formatPhone = (value: string) => {
+    if (!value) return value;
+    const phoneNumber = value.replace(/[^\d]/g, '');
+    if (phoneNumber.length <= 3) return `${phoneNumber}`;
+    else if (phoneNumber.length <= 6)
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+      3,
+      6
+    )}-${phoneNumber.slice(6, 10)}`;
+  };
+
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     section: 'billing' | 'shipping' | 'payment'
@@ -29,7 +41,10 @@ const Checkout = ({ fields, setFields, errors }: ICheckoutFormProps) => {
       ...prev,
       [section]: {
         ...prev[section],
-        [e.target.name]: e.target.value,
+        [e.target.name]:
+          e.target.name === 'phone'
+            ? formatPhone(e.target.value)
+            : e.target.value,
       },
     }));
   };
