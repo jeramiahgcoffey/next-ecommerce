@@ -4,7 +4,11 @@ import { formatter } from '@/lib/currencyFormatter';
 import CartItem from '../cart/CartItem';
 import styles from './Summary.module.scss';
 
-const Summary = () => {
+interface ISummaryProps {
+  handleCheckout: () => void;
+}
+
+const Summary = ({ handleCheckout }: ISummaryProps) => {
   const { cart, subtotal } = useCart();
 
   return (
@@ -40,7 +44,7 @@ const Summary = () => {
         </div>
       </div>
       <div className={styles.button}>
-        <Button handleClick={() => console.log('click')}>Continue & Pay</Button>
+        <Button handleClick={handleCheckout}>Continue & Pay</Button>
       </div>
     </div>
   );

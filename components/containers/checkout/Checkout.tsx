@@ -1,37 +1,26 @@
 import RadioGroup from '@/components/inputs/radio/RadioGroup';
 import TextField from '@/components/inputs/textField/TextField';
 import { IFormFields } from '@/pages/checkout';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import styles from './Checkout.module.scss';
 
 interface ICheckoutFormProps {
   fields: IFormFields;
   setFields: Dispatch<SetStateAction<IFormFields>>;
+  errors: {
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+    zip: string;
+    city: string;
+    country: string;
+    pin: string;
+    eNumber: string;
+  };
 }
 
-const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    zip: '',
-    city: '',
-    country: '',
-    method: '',
-    pin: '',
-    eNumber: '',
-  });
-
-  const validateField = (field: string, value: string) => {
-    if (!value || !value.length) {
-      setErrors((prev) => ({
-        ...prev,
-        [field]: `${field} cannot be empty.`,
-      }));
-    }
-  };
-
+const Checkout = ({ fields, setFields, errors }: ICheckoutFormProps) => {
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     section: 'billing' | 'shipping' | 'payment'
@@ -43,7 +32,6 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
         [e.target.name]: e.target.value,
       },
     }));
-    validateField(e.target.name, e.target.value);
   };
 
   return (
@@ -97,6 +85,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
             placeholder="1234 Any Way"
             label="Your Address"
             name="address"
+            error={errors.address}
             value={fields.shipping.address}
             handleChangeEvent={(e) => {
               handleFormChange(e, 'shipping');
@@ -109,6 +98,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
               placeholder="10101"
               label="ZIP Code"
               name="zip"
+              error={errors.zip}
               value={fields.shipping.zip}
               handleChangeEvent={(e) => {
                 handleFormChange(e, 'shipping');
@@ -120,6 +110,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
               placeholder="Any Town"
               label="City"
               name="city"
+              error={errors.city}
               value={fields.shipping.city}
               handleChangeEvent={(e) => {
                 handleFormChange(e, 'shipping');
@@ -131,6 +122,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
               placeholder="USA"
               label="Country"
               name="country"
+              error={errors.country}
               value={fields.shipping.country}
               handleChangeEvent={(e) => {
                 handleFormChange(e, 'shipping');
@@ -171,6 +163,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
                   placeholder="111111111"
                   label="e-Money Number"
                   name="eNumber"
+                  error={errors.eNumber}
                   value={fields.payment.eNumber}
                   handleChangeEvent={(e) => {
                     handleFormChange(e, 'payment');
@@ -182,6 +175,7 @@ const Checkout = ({ fields, setFields }: ICheckoutFormProps) => {
                   placeholder="1234"
                   label="e-Money PIN"
                   name="pin"
+                  error={errors.pin}
                   value={fields.payment.pin}
                   handleChangeEvent={(e) => {
                     handleFormChange(e, 'payment');
