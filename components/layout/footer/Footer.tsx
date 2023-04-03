@@ -42,30 +42,30 @@ const Footer = () => {
                 Copyright © {new Date().getFullYear()}. All Rights Reserved
               </div>
               <div className={styles.icons}>
-                <Link href={'/'}>
+                <a href={'https://github.com/jeramiahgcoffey'}>
                   <Image
                     src="/assets/shared/desktop/icon-facebook.svg"
                     width={24}
                     height={24}
                     alt="Facebook icon"
                   />
-                </Link>
-                <Link href={'/'}>
+                </a>
+                <a href={'https://github.com/jeramiahgcoffey'}>
                   <Image
                     src="/assets/shared/desktop/icon-twitter.svg"
                     width={24}
                     height={20}
                     alt="Facebook icon"
                   />
-                </Link>
-                <Link href={'/'}>
+                </a>
+                <a href={'https://github.com/jeramiahgcoffey'}>
                   <Image
                     src="/assets/shared/desktop/icon-instagram.svg"
                     width={24}
                     height={24}
                     alt="Facebook icon"
                   />
-                </Link>
+                </a>
               </div>
             </div>
           ) : (
@@ -74,30 +74,30 @@ const Footer = () => {
                 Copyright © {new Date().getFullYear()}. All Rights Reserved
               </div>
               <div className={styles.icons}>
-                <Link href={'/'}>
+                <a href={'https://github.com/jeramiahgcoffey'}>
                   <Image
                     src="/assets/shared/desktop/icon-facebook.svg"
                     width={24}
                     height={24}
                     alt="Facebook icon"
                   />
-                </Link>
-                <Link href={'/'}>
+                </a>
+                <a href={'https://github.com/jeramiahgcoffey'}>
                   <Image
                     src="/assets/shared/desktop/icon-twitter.svg"
                     width={24}
                     height={20}
                     alt="Facebook icon"
                   />
-                </Link>
-                <Link href={'/'}>
+                </a>
+                <a href={'https://github.com/jeramiahgcoffey'}>
                   <Image
                     src="/assets/shared/desktop/icon-instagram.svg"
                     width={24}
                     height={24}
                     alt="Facebook icon"
                   />
-                </Link>
+                </a>
               </div>
             </>
           )}
