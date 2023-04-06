@@ -4,7 +4,7 @@ import Back from '@/components/inputs/back/Back';
 import useCart from '@/hooks/useCart';
 import styles from '@/styles/Checkout.module.scss';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export interface IFormFields {
   billing: {
@@ -42,6 +42,7 @@ const Checkout = () => {
   const { cart } = useCart();
 
   const [errors, setErrors] = useState(initialErrors);
+  const [hasErrors, setHasErrors] = useState(false);
 
   const [formFields, setFormFields] = useState<IFormFields>({
     billing: {
@@ -68,12 +69,6 @@ const Checkout = () => {
       const formSection = formFields[section as keyof IFormFields];
       for (const field in formSection) {
         const value = formSection[field as keyof typeof formSection] as string;
-        if (!value) {
-          setErrors((prev) => ({
-            ...prev,
-            [field]: 'Field cannot be empty',
-          }));
-        }
         if (value.length >= 115) {
           setErrors((prev) => ({
             ...prev,
@@ -90,6 +85,38 @@ const Checkout = () => {
             }));
           }
         }
+        if (field === 'zip') {
+          const regex = /^[0-9]{5}(?:-[0-9]{4})?$/;
+          if (!regex.test(value)) {
+            setErrors((prev) => ({
+              ...prev,
+              [field]: 'The ZIP code you entered is invalid',
+            }));
+          }
+        }
+        if (field === 'eNumber') {
+          if (value.length !== 9) {
+            setErrors((prev) => ({
+              ...prev,
+              [field]: 'The eNumber must be 9 digits',
+            }));
+          }
+        }
+        if (field === 'pin') {
+          if (value.length !== 4) {
+            setErrors((prev) => ({
+              ...prev,
+              [field]: 'The PIN must be 4 digits',
+            }));
+          }
+        }
+
+        if (!value) {
+          setErrors((prev) => ({
+            ...prev,
+            [field]: 'Field cannot be empty',
+          }));
+        }
       }
     }
 
@@ -102,8 +129,17 @@ const Checkout = () => {
     }
   };
 
+  useEffect(() => {
+    if (Object.values(errors).every((field) => field === '')) {
+      setHasErrors(false);
+    } else {
+      setHasErrors(true);
+    }
+  }, [errors]);
+
   const handleSubmit = () => {
     validateFields();
+    console.log(hasErrors ? 'errors' : 'valid');
   };
 
   return (

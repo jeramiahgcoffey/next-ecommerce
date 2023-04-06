@@ -33,18 +33,45 @@ const Checkout = ({ fields, setFields, errors }: ICheckoutFormProps) => {
     )}-${phoneNumber.slice(6, 10)}`;
   };
 
+  const formatNumber = (value: string) => {
+    if (!value) return value;
+    return value.replace(/[^\d]/g, '');
+  };
+
+  const formatZip = (value: string) => {
+    if (!value) return value;
+    const zip = value.replace(/[^\d]/g, '');
+    if (zip.length <= 5) return zip;
+    else return `${zip.slice(0, 5)}-${zip.slice(5, 9)}`;
+  };
+
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     section: 'billing' | 'shipping' | 'payment'
   ) => {
+    let value: string;
+    switch (e.target.name) {
+      case 'phone':
+        value = formatPhone(e.target.value);
+        break;
+      case 'zip':
+        value = formatZip(e.target.value);
+        break;
+      case 'eNumber':
+        value = formatNumber(e.target.value).slice(0, 9);
+        break;
+      case 'pin':
+        value = formatNumber(e.target.value).slice(0, 4);
+        break;
+      default:
+        value = e.target.value;
+    }
+
     setFields((prev) => ({
       ...prev,
       [section]: {
         ...prev[section],
-        [e.target.name]:
-          e.target.name === 'phone'
-            ? formatPhone(e.target.value)
-            : e.target.value,
+        [e.target.name]: value,
       },
     }));
   };
