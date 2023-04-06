@@ -44,14 +44,7 @@ const DetailPageBody = ({
           }
           handleIncrement={() => setQuantity(quantity + 1)}
         />
-        <Button
-          handleClick={(e) => {
-            addToCart(e);
-            router.back();
-          }}
-        >
-          Add to cart
-        </Button>
+        <Button handleClick={addToCart}>Add to cart</Button>
       </div>
     </div>
   );

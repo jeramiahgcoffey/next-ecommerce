@@ -3,16 +3,15 @@ import InTheBox from '@/components/containers/inTheBox/InTheBox';
 import ProductFeatures from '@/components/containers/productFeatures/ProductFeatures';
 import ProductGallery from '@/components/containers/productGallery/ProductGallery';
 import ProductSuggestions from '@/components/containers/productSuggestions/ProductSuggestions';
+import Back from '@/components/inputs/back/Back';
 import ProductLayout from '@/components/layout/ProductLayout';
 import { prisma } from '@/db/prismadb';
 import useCart from '@/hooks/useCart';
 import useViewport from '@/hooks/useViewport';
+import styles from '@/styles/Product.module.scss';
 import { Product as TProduct } from '@prisma/client';
 import { GetServerSideProps } from 'next';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import styles from '@/styles/Product.module.scss';
-import Back from '@/components/inputs/back/Back';
+import { useRef, useState } from 'react';
 
 interface IProductPageProps {
   product: TProduct;
@@ -38,6 +37,8 @@ const Product = ({ product }: IProductPageProps) => {
   const { width } = useViewport();
   const [qty, setQty] = useState(1);
   const { addProduct } = useCart();
+
+  const suggestionsRef = useRef<HTMLDivElement>(null);
 
   const getBreakpoint = (width: number) => {
     if (width >= 1000) {
@@ -65,6 +66,7 @@ const Product = ({ product }: IProductPageProps) => {
           addToCart={() => {
             addProduct(product, qty);
             setQty(1);
+            suggestionsRef.current?.scrollIntoView();
           }}
         />
       </div>
@@ -81,7 +83,7 @@ const Product = ({ product }: IProductPageProps) => {
         <ProductGallery gallery={product.gallery} />
       </div>
 
-      <div className={styles.suggestions}>
+      <div ref={suggestionsRef} className={styles.suggestions}>
         <ProductSuggestions products={product.others} />
       </div>
     </div>
