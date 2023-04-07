@@ -5,9 +5,27 @@
   padding-top: 16px;
   padding-bottom: 16px;
   background: $neutral;
+
+  @include devices(desktop) {
+    padding-top: 70px;
+    padding-bottom: 100px;
+  }
+
   .container {
     margin: auto;
     max-width: 1110px;
     padding: 0 24px;
+
+    .back {
+      margin-bottom: 38px;
+    }
+
+    @include devices(desktop) {
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+      }
+    }
   }
 }

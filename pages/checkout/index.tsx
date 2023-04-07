@@ -138,13 +138,17 @@ const Checkout = () => {
   return (
     <div className={styles.checkout}>
       <div className={styles.container}>
-        <Back />
-        <CheckoutForm
-          fields={formFields}
-          setFields={setFormFields}
-          errors={errors}
-        />
-        <Summary handleCheckout={handleSubmit} />
+        <div className={styles.back}>
+          <Back />
+        </div>
+        <div className={styles.flex}>
+          <CheckoutForm
+            fields={formFields}
+            setFields={setFormFields}
+            errors={errors}
+          />
+          <Summary handleCheckout={handleSubmit} />
+        </div>
       </div>
     </div>
   );
